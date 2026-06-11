@@ -4,6 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="جمعية الرجاء الخيرية لذوي الإعاقة بحلب - نعمل معاً لتمكين وتأهيل ذوي الإعاقة ودمجهم في المجتمع.">
+    
+    <!-- SEO & Meta Tags المتطورة -->
+    <meta name="keywords" content="جمعية الرجاء, ذوي الإعاقة, حلب, سوريا, تبرع, تأهيل, رعاية صحية, عمل خيري, تطوع, تعليم خاص">
+    <meta name="author" content="جمعية الرجاء الخيرية">
+    <meta name="theme-color" content="#01010a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alrajaa-charity.org/">
+    <meta property="og:title" content="جمعية الرجاء الخيرية لذوي الإعاقة | حلب">
+    <meta property="og:description" content="نعمل معاً لتمكين وتأهيل ذوي الإعاقة ودمجهم في المجتمع. انضم إلينا لنغدو معاً لغدٍ أفضل.">
+    <meta property="og:image" content="https://placehold.co/1200x630/01010a/ffd700?text=Al+Rajaa+Charity+Aleppo"> 
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="جمعية الرجاء الخيرية لذوي الإعاقة">
+    <meta name="twitter:description" content="نعمل معاً لتمكين وتأهيل ذوي الإعاقة ودمجهم في المجتمع في حلب.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/01010a/ffd700?text=Al+Rajaa+Charity">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "جمعية الرجاء الخيرية لذوي الإعاقة",
+      "alternateName": "Al-Rajaa Charity",
+      "url": "https://alrajaa-charity.org/",
+      "logo": "https://alrajaa-charity.org/logo.png",
+      "description": "نحن في جمعية الرجاء بحلب نسعى لتمكين ذوي الإعاقة، إبراز طاقاتهم، وتوفير بيئة داعمة ومبتكرة تضمن حقوقهم واندماجهم الكامل في المجتمع.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "حلب",
+        "addressRegion": "حلب",
+        "addressCountry": "SY"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+963-950-088-501",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/18tv9jtNK5/",
+        "https://www.instagram.com/alraja2002?igsh=MXR2eHlvNzdicDVuMw=="
+      ]
+    }
+    </script>
+    
     <title>جمعية الرجاء الخيرية لذوي الإعاقة</title>
     
     <!-- Tailwind CSS -->
@@ -12,8 +61,8 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts (Cairo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Tajawal & Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Vanilla Tilt for 3D Cards -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
@@ -24,7 +73,7 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    fontFamily: { sans: ['Tajawal', 'Cairo', 'sans-serif'] },
                     colors: {
                         brand: {
                             base: 'var(--color-base)',
@@ -38,6 +87,7 @@
                         'blob': 'blob 7s infinite',
                         'marquee': 'marquee 25s linear infinite',
                         'marquee-ltr': 'marquee-ltr 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
                         blob: {
@@ -53,6 +103,10 @@
                         'marquee-ltr': {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -62,111 +116,132 @@
     
     <style>
         :root {
-            /* Light Mode */
-            --color-base: #f8fafc;
-            --color-accent: #eab308; /* Yellow-500 */
+            --color-base: #f4f4f9;
+            --color-accent: #d4af37; /* لون ذهبي داكن قليلاً للوضع الفاتح للحفاظ على التباين */
             --color-surface: rgba(255, 255, 255, 0.7);
             --color-text: #0f172a;
             --color-muted: #475569;
         }
 
         .dark {
-            /* Dark Mode - 2026 Bento Style */
-            --color-base: #020617; /* Deep Space Blue */
-            --color-accent: #facc15; /* Neon Yellow */
-            --color-surface: rgba(15, 23, 42, 0.4);
+            --color-base: #01010a; 
+            --color-accent: #ffd700; /* لون ذهبي رويال ساطع للوضع المظلم */
+            --color-surface: rgba(10, 10, 25, 0.4);
             --color-text: #ffffff;
             --color-muted: #94a3b8;
         }
 
+        /* Accessibility Classes */
+        body.a11y-high-contrast {
+            --color-base: #000000;
+            --color-text: #ffffff;
+            --color-accent: #ffff00;
+            --color-muted: #cccccc;
+            --color-surface: #111111;
+        }
+        body.a11y-large-font { font-size: 110%; }
+        body.a11y-no-motion * {
+            animation: none !important;
+            transition: none !important;
+            transform: none !important;
+        }
+
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Tajawal', 'Cairo', sans-serif;
             background-color: var(--color-base);
             color: var(--color-text);
             transition: background-color 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
         }
 
-        /* Animated Space Background */
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed; inset: 0; z-index: 9999;
+            background: radial-gradient(circle at center, #0a0a2a 0%, #01010a 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+        }
+        #splash-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .splash-content { position: relative; z-index: 2; text-align: center; }
+        .splash-logo {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            box-shadow: 0 0 50px rgba(255,215,0,0.8), inset 0 0 20px rgba(255,215,0,0.5);
+            animation: float 4s ease-in-out infinite, pulseGlow 2s infinite alternate;
+            margin: 0 auto 2rem; border: 3px solid rgba(255,215,0,0.5); background: #fff;
+        }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 30px rgba(255,215,0,0.5); } 100% { box-shadow: 0 0 80px rgba(255,215,0,1); } }
+        .splash-text {
+            opacity: 0; transform: translateY(30px);
+            animation: fadeUpSplash 1.5s 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+        @keyframes fadeUpSplash { to { opacity: 1; transform: translateY(0); } }
+
+        /* Space Particles */
         .bg-particles {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1; overflow: hidden; pointer-events: none;
         }
         .bg-particles::before, .bg-particles::after {
-            content: '';
-            position: absolute;
-            width: 600px; height: 600px;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
+            content: ''; position: absolute; width: 600px; height: 600px;
+            border-radius: 50%; filter: blur(120px); opacity: 0.2;
             animation: blob 15s infinite alternate;
         }
-        .bg-particles::before { background: #facc15; top: -200px; right: -200px; }
-        .bg-particles::after { background: #1e3a8a; bottom: -200px; left: -200px; animation-delay: -5s; }
+        .bg-particles::before { background: var(--color-accent); top: -200px; right: -200px; }
+        .bg-particles::after { background: #0a0a3a; bottom: -200px; left: -200px; animation-delay: -5s; }
 
+        /* Glassmorphism */
         .glass-panel {
             background: var(--color-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
-        .dark .glass-panel { box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); border-radius: 1.5rem; }
+        .dark .glass-panel { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); border-radius: 2.5rem; }
         
         .tilt-card { transform-style: preserve-3d; }
-        .tilt-card-inner { transform: translateZ(20px); }
+        .tilt-card-inner { transform: translateZ(25px); }
         .dark .tilt-card:hover {
-            border-color: rgba(250, 204, 21, 0.4);
-            box-shadow: 0 0 30px rgba(250, 204, 21, 0.15), inset 0 0 20px rgba(250, 204, 21, 0.05);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 35px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
         .text-brand-accent { color: var(--color-accent); }
-        .bg-brand-accent { background-color: var(--color-accent); color: #020612; }
+        .bg-brand-accent { background-color: var(--color-accent); color: #ffffff; }
         .border-brand-accent { border-color: var(--color-accent); }
 
         .text-gradient {
-            background: linear-gradient(to left, #facc15, #f97316);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+            background: linear-gradient(to left, var(--color-accent), #ffb300);
+            -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block;
         }
 
         .btn-accent {
-            background: linear-gradient(135deg, #facc15, #eab308);
-            color: #020617 !important;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-accent), #ffb300);
+            color: #ffffff !important; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative; overflow: hidden; border: none;
         }
-        .dark .btn-accent { box-shadow: 0 0 15px rgba(250, 204, 21, 0.3); }
+        .dark .btn-accent { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); color: #000 !important; }
         .btn-accent::after {
-            content: ''; position: absolute; top: -50%; left: -50%;
-            width: 200%; height: 200%; background: rgba(255, 255, 255, 0.2);
-            transform: rotate(45deg) translateY(100%); transition: transform 0.5s;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: rgba(255, 255, 255, 0.2); transform: rotate(45deg) translateY(100%); transition: transform 0.6s;
         }
         .btn-accent:hover::after { transform: rotate(45deg) translateY(-100%); }
         .btn-accent:hover { transform: translateY(-3px); }
-        .dark .btn-accent:hover { box-shadow: 0 0 25px rgba(250, 204, 21, 0.6); }
+        .dark .btn-accent:hover { box-shadow: 0 0 30px rgba(255, 179, 0, 0.7); }
 
         .page-view { display: none; }
         .page-view.active { display: block; }
         
         .fade-up-element {
-            opacity: 0; transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .fade-up-element.visible { opacity: 1; transform: translateY(0); }
 
         .ticker-wrap { overflow: hidden; white-space: nowrap; position: relative; }
         .ticker-wrap::before {
             content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent);
-            box-shadow: 0 -2px 10px rgba(250,204,21,0.4);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+            box-shadow: 0 -2px 10px rgba(255, 215, 0, 0.4);
         }
 
         select option { background-color: var(--color-base); color: var(--color-text); }
@@ -184,28 +259,76 @@
         .toast-msg.show { transform: translateX(0); opacity: 1; }
         .toast-msg.hide { opacity: 0; transform: translateY(20px); }
 
-        /* Tabs styling */
-        .admin-tab { cursor: pointer; transition: all 0.3s; }
-        .admin-tab.active { background: linear-gradient(135deg, #facc15, #eab308); color: #020617; box-shadow: 0 0 15px rgba(250, 204, 21, 0.4); }
-        .admin-tab.inactive { background: rgba(255,255,255,0.05); color: var(--color-text); border: 1px solid rgba(255,255,255,0.1); }
+        /* Accessibility Widget */
+        .a11y-widget-btn {
+            box-shadow: 0 0 20px rgba(255,215,0,0.4);
+            animation: float 4s infinite ease-in-out;
+        }
+        .dark .a11y-widget-btn { color: #000; }
     </style>
 </head>
 
 <body class="antialiased min-h-screen flex flex-col relative">
 
+    <!-- شاشة التحميل الفخمة (Splash Screen) -->
+    <div id="splash-screen">
+        <canvas id="splash-canvas"></canvas>
+        <div class="splash-content">
+            <img src="logo.png" alt="شعار جمعية الرجاء" class="splash-logo" onerror="this.src='https://placehold.co/200x200/ffd700/ffffff?text=Logo'">
+            <div class="splash-text">
+                <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-[#ffd700] to-yellow-600 mb-8 tracking-wider leading-normal py-2" data-i18n="splash_t1">جمعية الرجاء لذوي الإعاقة</h1>
+                <p class="text-2xl md:text-4xl text-white font-bold tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] mt-2" data-i18n="splash_t2">تُرحب بكم</p>
+                <div class="mt-10 flex justify-center gap-2">
+                    <div class="w-3 h-3 bg-brand-accent rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                    <div class="w-3 h-3 bg-brand-accent rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    <div class="w-3 h-3 bg-brand-accent rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- أداة إمكانية الوصول (Accessibility Widget) -->
+    <div class="fixed bottom-6 left-6 z-[100] rtl:left-6 rtl:right-auto ltr:right-6 ltr:left-auto">
+        <div id="a11y-menu" class="hidden absolute bottom-16 left-0 rtl:left-0 ltr:right-0 glass-panel p-4 rounded-2xl w-64 mb-4 transform transition-all origin-bottom-left">
+            <h4 class="font-bold text-brand-text mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                <i class="fa-solid fa-universal-access text-brand-accent"></i> إمكانية الوصول
+            </h4>
+            <div class="space-y-3">
+                <label class="flex items-center justify-between cursor-pointer group">
+                    <span class="text-sm font-bold text-brand-muted group-hover:text-brand-text transition-colors">إيقاف الحركات</span>
+                    <input type="checkbox" id="toggle-motion" onchange="toggleA11y('motion')" class="sr-only peer">
+                    <div class="w-9 h-5 bg-gray-400 dark:bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] rtl:after:right-[2px] rtl:after:left-auto after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-accent"></div>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer group">
+                    <span class="text-sm font-bold text-brand-muted group-hover:text-brand-text transition-colors">التباين العالي</span>
+                    <input type="checkbox" id="toggle-contrast" onchange="toggleA11y('contrast')" class="sr-only peer">
+                    <div class="w-9 h-5 bg-gray-400 dark:bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] rtl:after:right-[2px] rtl:after:left-auto after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-accent"></div>
+                </label>
+                <label class="flex items-center justify-between cursor-pointer group">
+                    <span class="text-sm font-bold text-brand-muted group-hover:text-brand-text transition-colors">تكبير الخط</span>
+                    <input type="checkbox" id="toggle-font" onchange="toggleA11y('font')" class="sr-only peer">
+                    <div class="w-9 h-5 bg-gray-400 dark:bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] rtl:after:right-[2px] rtl:after:left-auto after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-accent"></div>
+                </label>
+            </div>
+        </div>
+        <button onclick="document.getElementById('a11y-menu').classList.toggle('hidden')" class="a11y-widget-btn w-14 h-14 bg-brand-accent text-white rounded-full flex items-center justify-center text-2xl hover:scale-110 transition-transform">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+    </div>
+
     <div class="bg-particles"></div>
 
-    <header class="fixed w-full top-0 z-50 glass-panel border-b border-gray-200 dark:border-white/5 bg-white/70 dark:bg-[#020617]/70">
+    <header class="fixed w-full top-0 z-50 glass-panel border-b border-gray-200 dark:border-white/5 bg-white/70 dark:bg-[#01010a]/70 !rounded-none">
         <div class="container mx-auto px-4 py-3 flex flex-col lg:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3 cursor-pointer lg:w-1/4" onclick="navigateTo('view-home')">
-                <img src="logo.png" alt="شعار جمعية الرجاء" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-[0_0_15px_rgba(250,204,21,0.5)] border-2 border-brand-accent/50 bg-white" onerror="this.src='https://placehold.co/100x100/facc15/020617?text=Logo'">
+                <img src="logo.png" alt="شعار جمعية الرجاء" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-[0_0_15px_rgba(255,215,0,0.5)] border-2 border-brand-accent/50 bg-white" onerror="this.src='https://placehold.co/100x100/ffd700/ffffff?text=Logo'">
                 <div>
                     <h1 class="text-xl md:text-2xl font-black tracking-tight text-brand-text" data-i18n="logo_title">جمعية الرجاء الخيرية</h1>
                     <p class="text-[10px] md:text-xs font-semibold text-brand-accent tracking-wider" data-i18n="logo_subtitle">لذوي الإعاقة في حلب</p>
                 </div>
             </div>
 
-            <nav class="flex-1 flex flex-wrap justify-center items-center gap-4 md:gap-8 font-semibold text-sm xl:text-base">
+            <nav class="flex-1 flex flex-wrap justify-center items-center gap-4 md:gap-8 font-bold text-sm xl:text-base">
                 <button onclick="navigateTo('view-home')" class="relative hover:text-brand-accent transition-colors group" data-i18n="nav_home">الرئيسية
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
                 </button>
@@ -228,24 +351,24 @@
             
             <div class="flex items-center justify-end gap-3 lg:w-1/4">
                 <div class="flex items-center gap-2 border-gray-300 dark:border-gray-700 pr-3 rtl:pr-0 rtl:pl-3 rtl:border-l rtl:border-r-0 border-r">
-                    <select id="langSwitcher" onchange="changeLanguage(this.value)" class="bg-gray-100 dark:bg-gray-800/50 border border-gray-400 dark:border-white/10 rounded-lg py-1.5 px-2 text-xs font-bold focus:outline-none cursor-pointer transition-colors hover:border-brand-accent text-brand-text">
-                        <option value="ar" class="bg-white dark:bg-[#020617] text-black dark:text-white">عربي</option>
-                        <option value="en" class="bg-white dark:bg-[#020617] text-black dark:text-white">English</option>
-                        <option value="tr" class="bg-white dark:bg-[#020617] text-black dark:text-white">Türkçe</option>
+                    <select id="langSwitcher" onchange="changeLanguage(this.value)" aria-label="تغيير اللغة" class="bg-gray-100 dark:bg-gray-800/50 border border-gray-400 dark:border-white/10 rounded-lg py-1.5 px-2 text-xs font-bold focus:outline-none cursor-pointer transition-colors hover:border-brand-accent text-brand-text">
+                        <option value="ar" class="bg-white dark:bg-[#01010a] text-black dark:text-white">عربي</option>
+                        <option value="en" class="bg-white dark:bg-[#01010a] text-black dark:text-white">English</option>
+                        <option value="tr" class="bg-white dark:bg-[#01010a] text-black dark:text-white">Türkçe</option>
                     </select>
-                    <button onclick="toggleTheme()" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-white/5 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-white/10 transition-colors border border-transparent dark:border-white/5">
+                    <button onclick="toggleTheme()" aria-label="تغيير المظهر" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-white/5 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-white/10 transition-colors border border-transparent dark:border-white/5">
                         <i id="themeIcon" class="fa-solid fa-moon"></i>
                     </button>
                 </div>
                 <button class="btn-accent px-5 py-2 rounded-xl font-bold flex items-center" onclick="showToast(translations[document.documentElement.lang].msg_donate, 'success')">
-                    <span data-i18n="btn_donate_txt">تبرع</span> <i class="fa-solid fa-heart mr-2 rtl:ml-2 rtl:mr-0 text-[#020617]"></i>
+                    <span data-i18n="btn_donate_txt">تبرع</span> <i class="fa-solid fa-heart mr-2 rtl:ml-2 rtl:mr-0 dark:text-black text-white"></i>
                 </button>
             </div>
         </div>
         
         <div class="ticker-wrap py-1.5 bg-transparent font-semibold text-xs md:text-sm">
             <div class="container mx-auto px-4 flex">
-                <span class="z-10 whitespace-nowrap ml-3 rtl:ml-0 rtl:mr-3 text-brand-accent drop-shadow-[0_0_5px_rgba(250,204,21,0.5)] font-black" data-i18n="ticker_title">عاجل:</span>
+                <span class="z-10 whitespace-nowrap ml-3 rtl:ml-0 rtl:mr-3 text-brand-accent drop-shadow-[0_0_8px_rgba(255,215,0,0.6)] font-black" data-i18n="ticker_title">عاجل:</span>
                 <div class="flex-grow overflow-hidden relative">
                     <div class="animate-marquee rtl:animate-marquee-ltr text-brand-text" id="tickerContent" data-i18n="ticker_loading">جارِ التحميل...</div>
                 </div>
@@ -260,15 +383,15 @@
         <!-- VIEW: HOME -->
         <div id="view-home" class="page-view active">
             <div class="container mx-auto px-4 text-center">
-                <div class="max-w-5xl mx-auto">
+                <div class="max-w-6xl mx-auto">
                     <div class="fade-up-element" style="transition-delay: 0.1s;">
-                        <span class="inline-block py-1.5 px-4 rounded-full glass-panel text-brand-accent text-sm font-bold mb-8 border border-brand-accent/30 shadow-[0_0_15px_rgba(250,204,21,0.15)] bg-brand-accent/5 backdrop-blur-md" data-i18n="hero_badge">
-                            <i class="fa-solid fa-location-dot mx-1"></i> دمشق - حلب | نعمل معاً منذ 2010
+                        <span class="inline-block py-2 px-5 rounded-full glass-panel text-brand-accent text-sm font-bold mb-8 border border-brand-accent/30 shadow-[0_0_20px_rgba(255,215,0,0.2)] bg-brand-accent/5" data-i18n="hero_badge">
+                            <i class="fa-solid fa-location-dot mx-1"></i> حلب | 25 سنة من العمل المستمر
                         </span>
                     </div>
                     <div class="fade-up-element" style="transition-delay: 0.2s;">
-                        <h2 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-8 tracking-tight">
-                            <span class="text-gradient drop-shadow-[0_0_15px_rgba(250,204,21,0.3)] pb-2" data-i18n="hero_t1">معاً نغدو لغداً أفضل</span>
+                        <h2 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.5] mb-8 tracking-tight">
+                            <span class="text-gradient drop-shadow-[0_0_20px_rgba(255,215,0,0.4)] py-4 px-2" data-i18n="hero_t1">معاً نغدو لغدٍ أفضل</span>
                         </h2>
                     </div>
                     <div class="fade-up-element" style="transition-delay: 0.3s;">
@@ -277,35 +400,75 @@
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-start fade-up-element" style="transition-delay: 0.4s;">
-                        <div class="glass-panel p-8 rounded-[2rem] cursor-pointer tilt-card group" onclick="navigateTo('view-services')" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                            <div class="tilt-card-inner">
-                                <div class="w-14 h-14 bg-brand-accent rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg text-[#020617] group-hover:scale-110 transition-transform duration-300">
-                                    <i class="fa-solid fa-wheelchair"></i>
+                    <!-- Bento Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 max-w-6xl mx-auto text-start fade-up-element" style="transition-delay: 0.4s;">
+                        
+                        <!-- Bento Large Card -->
+                        <div class="md:col-span-2 md:row-span-2 glass-panel p-10 rounded-[2.5rem] cursor-pointer tilt-card group relative overflow-hidden bg-center bg-cover" 
+                             style="background-image: url('https://images.unsplash.com/photo-1594708767771-a7502209ff51?q=80&w=1000&auto=format&fit=crop');"
+                             onclick="navigateTo('view-services')" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-[#01010a]/80 group-hover:bg-[#01010a]/70 transition-all duration-500 z-0 mix-blend-multiply"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#01010a] via-[#01010a]/80 to-transparent z-0"></div>
+                            
+                            <div class="tilt-card-inner relative z-10 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-16 h-16 bg-gradient-to-tr from-[#d4af37] to-[#ffb300] rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_20px_rgba(255,215,0,0.5)] text-[#000] group-hover:scale-110 transition-transform duration-300 animate-float">
+                                        <i class="fa-solid fa-wheelchair"></i>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black mb-4 text-white drop-shadow-md group-hover:text-[#ffd700] transition-colors" data-i18n="c1_t">خدماتنا</h3>
                                 </div>
-                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors" data-i18n="c1_t">خدماتنا التأهيلية</h3>
-                                <p class="text-base text-brand-muted" data-i18n="c1_d">برامج متخصصة لدعم القدرات.</p>
+                                <p class="text-lg lg:text-xl text-gray-300 leading-relaxed font-medium mt-4 drop-shadow-md" data-i18n="c1_d">برامج متخصصة لدعم القدرات وتطوير المهارات الحركية والذهنية بأحدث الطرق.</p>
                             </div>
                         </div>
-                        <div class="glass-panel p-8 rounded-[2rem] cursor-pointer tilt-card group" onclick="navigateTo('view-register')" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                            <div class="tilt-card-inner">
-                                <div class="w-14 h-14 bg-brand-accent rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg text-[#020617] group-hover:scale-110 transition-transform duration-300">
+
+                        <!-- Bento Small Card 1 -->
+                        <div class="md:col-span-2 glass-panel p-8 rounded-[2.5rem] cursor-pointer tilt-card group" onclick="navigateTo('view-register')" data-tilt data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                            <div class="tilt-card-inner flex items-center gap-6">
+                                <div class="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-2xl text-brand-accent group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-[#000] shadow-lg transition-all duration-300 shrink-0">
                                     <i class="fa-solid fa-child-reaching"></i>
                                 </div>
-                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors" data-i18n="c2_t">تسجيل المستفيدين</h3>
-                                <p class="text-base text-brand-muted" data-i18n="c2_d">انضم لبرامجنا التعليمية والصحية.</p>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-2 text-brand-text group-hover:text-brand-accent transition-colors" data-i18n="c2_t">تسجيل المستفيدين</h3>
+                                    <p class="text-base text-brand-muted" data-i18n="c2_d">انضم لبرامجنا التعليمية والصحية.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-panel p-8 rounded-[2rem] cursor-pointer tilt-card group" onclick="navigateTo('view-news')" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-                            <div class="tilt-card-inner">
-                                <div class="w-14 h-14 bg-brand-accent rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg text-[#020617] group-hover:scale-110 transition-transform duration-300">
+
+                        <!-- Bento Small Card 2 -->
+                        <div class="md:col-span-2 glass-panel p-8 rounded-[2.5rem] cursor-pointer tilt-card group" onclick="navigateTo('view-news')" data-tilt data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                            <div class="tilt-card-inner flex items-center gap-6">
+                                <div class="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-2xl text-brand-accent group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-[#000] shadow-lg transition-all duration-300 shrink-0">
                                     <i class="fa-solid fa-bullhorn"></i>
                                 </div>
-                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors" data-i18n="c3_t">أخبار وحملات</h3>
-                                <p class="text-base text-brand-muted" data-i18n="c3_d">تابع أحدث إنجازاتنا ونشاطاتنا.</p>
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-2 text-brand-text group-hover:text-brand-accent transition-colors" data-i18n="c3_t">أخبار وحملات</h3>
+                                    <p class="text-base text-brand-muted" data-i18n="c3_d">تابع أحدث إنجازاتنا ونشاطاتنا الميدانية.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- إحصائيات بصرية -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mt-6 fade-up-element" style="transition-delay: 0.6s;" id="stats-section">
+                        <div class="glass-panel p-6 rounded-[2rem] text-center border border-brand-accent/20">
+                            <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-[#ffb300] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] mb-2"><span class="counter" data-target="25">0</span>+</div>
+                            <div class="text-brand-muted font-bold text-sm md:text-base">عام من العطاء</div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] text-center border border-brand-accent/20">
+                            <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-[#ffb300] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] mb-2"><span class="counter" data-target="3000">0</span>+</div>
+                            <div class="text-brand-muted font-bold text-sm md:text-base">مستفيد مسجل</div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] text-center border border-brand-accent/20">
+                            <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-[#ffb300] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] mb-2"><span class="counter" data-target="50">0</span>+</div>
+                            <div class="text-brand-muted font-bold text-sm md:text-base">برنامج تأهيلي</div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] text-center border border-brand-accent/20">
+                            <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-brand-accent to-[#ffb300] drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] mb-2"><span class="counter" data-target="100">0</span>%</div>
+                            <div class="text-brand-muted font-bold text-sm md:text-base">شفافية والتزام</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -318,28 +481,92 @@
                 </button>
                 <div class="mb-12 fade-up-element">
                     <h2 class="text-4xl md:text-6xl font-black mb-4 text-brand-text"><span class="text-brand-accent">|</span> <span data-i18n="nav_about">من نحن</span></h2>
-                    <p class="text-brand-muted text-xl max-w-2xl mt-4" data-i18n="ab_desc">جمعية الرجاء هي مؤسسة أهلية غير ربحية تهدف إلى رعاية وتأهيل ذوي الإعاقة.</p>
+                    <p class="text-brand-muted text-lg md:text-xl leading-relaxed mt-6 font-medium" data-i18n="ab_desc">جمعية الرجاء لذوي الإعاقة هي جمعية أهلية غير ربحية تقدم خدمات متخصصة للأطفال واليافعين من ذوي الإعاقات الذهنية، واضطراب طيف التوحد. نعمل عبر منظومة متكاملة تشمل التأهيل والعلاج، الدعم النفسي، التعليم الداعم، والتدريب المهني. تعتمد الجمعية منهجية عمل قائمة على التقييم الفردي مع اعتبار الأسرة شريكاً أساسياً في تحقيق الأثر والتكامل المجتمعي.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up-element" style="transition-delay: 0.2s;">
-                    <div class="glass-panel p-10 rounded-[2rem] md:col-span-2 tilt-card" data-tilt data-tilt-max="2" data-tilt-glare data-tilt-max-glare="0.1">
-                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent text-2xl mb-4 border border-brand-accent/20"><i class="fa-solid fa-eye"></i></div>
-                        <h3 class="text-3xl font-bold mb-4 text-brand-text" data-i18n="ab_v_t">رؤيتنا</h3>
-                        <p class="text-brand-muted text-lg leading-relaxed" data-i18n="ab_v_d">مجتمع شامل يضمن للأشخاص ذوي الإعاقة حقوقهم الكاملة ويحفزهم ليكونوا أفراداً منتجين.</p>
+                
+                <!-- مسيرتنا (Milestones) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 fade-up-element" style="transition-delay: 0.1s">
+                    <div class="glass-panel p-6 rounded-[2rem] border border-brand-accent/20 text-center hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-brand-accent mb-2">2001</div>
+                        <div class="text-brand-text font-bold" data-i18n="ab_m1_d">أحدثت بالقرار 973</div>
                     </div>
-                    <div class="glass-panel p-10 rounded-[2rem] flex flex-col justify-center items-center text-center tilt-card border-brand-accent/20 bg-brand-accent/5">
-                        <span class="text-6xl font-black text-brand-accent mb-2 drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]">15+</span>
-                        <p class="font-bold text-brand-text" data-i18n="ab_s1">عاماً من العطاء</p>
+                    <div class="glass-panel p-6 rounded-[2rem] border border-brand-accent/20 text-center hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-blue-500 mb-2">2011</div>
+                        <div class="text-brand-text font-bold" data-i18n="ab_m2_d">أشهرت بالقرار 1234</div>
                     </div>
-                    <div class="glass-panel p-10 rounded-[2rem] flex flex-col justify-center items-center text-center tilt-card border-brand-accent/20 bg-brand-accent/5">
-                        <span class="text-6xl font-black text-brand-accent mb-2 drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]">3K+</span>
-                        <p class="font-bold text-brand-text" data-i18n="ab_s2">مستفيد مسجل</p>
-                    </div>
-                    <div class="glass-panel p-10 rounded-[2rem] md:col-span-2 tilt-card" data-tilt data-tilt-max="2" data-tilt-glare data-tilt-max-glare="0.1">
-                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent text-2xl mb-4 border border-brand-accent/20"><i class="fa-solid fa-bullseye"></i></div>
-                        <h3 class="text-3xl font-bold mb-4 text-brand-text" data-i18n="ab_m_t">رسالتنا</h3>
-                        <p class="text-brand-muted text-lg leading-relaxed" data-i18n="ab_m_d">تقديم خدمات تأهيلية وتعليمية ونفسية عالية الجودة، وتوعية المجتمع لتغيير النظرة النمطية.</p>
+                    <div class="glass-panel p-6 rounded-[2rem] border border-brand-accent/20 text-center hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-green-500 mb-2">2026</div>
+                        <div class="text-brand-text font-bold" data-i18n="ab_m3_d">رؤية جديدة وشاملة</div>
                     </div>
                 </div>
+
+                <!-- Scrollytelling Timeline (الرؤية والرسالة) -->
+                <div class="relative my-16">
+                    <!-- الخط الزمني العمودي المضيء -->
+                    <div class="absolute top-0 bottom-0 rtl:right-4 ltr:left-4 w-1 bg-gradient-to-b from-brand-accent to-blue-500 shadow-[0_0_15px_var(--color-accent)] z-0 rounded-full"></div>
+                    
+                    <div class="space-y-12">
+                        <!-- الرؤية -->
+                        <div class="relative flex flex-col justify-center rtl:pr-14 ltr:pl-14 fade-up-element z-10">
+                            <!-- الدائرة المركزية -->
+                            <div class="absolute rtl:right-[6px] ltr:left-[6px] top-10 w-6 h-6 rounded-full border-4 border-[#01010a] bg-brand-accent shadow-[0_0_15px_rgba(255,215,0,0.8)] z-20"></div>
+                            <!-- البطاقة -->
+                            <div class="glass-panel p-8 rounded-[2rem] border border-brand-accent/30 w-full transition-transform hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,215,0,0.15)]">
+                                <h3 class="text-3xl font-black mb-4 text-brand-text flex items-center gap-3"><i class="fa-solid fa-eye text-brand-accent"></i> <span data-i18n="ab_v_t">رؤيتنا</span></h3>
+                                <p class="text-brand-muted text-lg leading-relaxed font-medium" data-i18n="ab_v_d">مجتمع شامل في سوريا حلب تتاح فيه الفرص بعدالة، ويعيش فيه الأطفال واليافعين من ذوي الإعاقة بكرامة واستقلالية، ويشاركون في التعليم والحياة العامة دون عوائق.</p>
+                            </div>
+                        </div>
+
+                        <!-- الرسالة -->
+                        <div class="relative flex flex-col justify-center rtl:pr-14 ltr:pl-14 fade-up-element z-10" style="transition-delay: 0.2s">
+                            <!-- الدائرة المركزية -->
+                            <div class="absolute rtl:right-[6px] ltr:left-[6px] top-10 w-6 h-6 rounded-full border-4 border-[#01010a] bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] z-20"></div>
+                            <!-- البطاقة -->
+                            <div class="glass-panel p-8 rounded-[2rem] border border-blue-500/30 w-full transition-transform hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)]">
+                                <h3 class="text-3xl font-black mb-4 text-brand-text flex items-center gap-3"><i class="fa-solid fa-bullseye text-blue-500"></i> <span data-i18n="ab_m_t">رسالتنا</span></h3>
+                                <p class="text-brand-muted text-lg leading-relaxed font-medium" data-i18n="ab_m_d">تقديم خدمات تأهيلية وتعليمية ونفسية متكاملة مع دعم فاعل للأسر، عبر برامج مهنية و شراكات مجتمعية تسهم في الدمج المدرسي والتمكين المهني.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- القيم -->
+                <div class="mt-20 fade-up-element" style="transition-delay: 0.4s">
+                    <h3 class="text-4xl font-black mb-10 text-brand-text flex items-center gap-3"><i class="fa-solid fa-star text-brand-accent"></i> <span data-i18n="ab_val_t">قيمنا</span></h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-brand-accent/50 transition-colors">
+                            <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center text-brand-accent mb-4 text-2xl"><i class="fa-solid fa-person-rays"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val1_t">الكرامة الإنسانية</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val1_d">احترام الإنسان وحقوقه دون تمييز.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-blue-500/50 transition-colors">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500 mb-4 text-2xl"><i class="fa-solid fa-users"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val2_t">الشمول والدمج</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val2_d">تعزيز الوصول والاندماج في المجتمع.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-green-500/50 transition-colors">
+                            <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-500 mb-4 text-2xl"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val3_t">الشراكة</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val3_d">التعاون مع الأسرة والمؤسسات.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-brand-accent/50 transition-colors">
+                            <div class="w-12 h-12 bg-brand-accent/10 rounded-xl flex items-center justify-center text-brand-accent mb-4 text-2xl"><i class="fa-solid fa-bolt"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val4_t">التمكين</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val4_d">تحويل الاحتياج إلى قدرة واستقلال.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-purple-500/50 transition-colors">
+                            <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-500 mb-4 text-2xl"><i class="fa-solid fa-medal"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val5_t">الاحترافية</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val5_d">خدمات مبنية على معايير الجودة.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-[2rem] border border-white/10 hover:border-red-500/50 transition-colors">
+                            <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 mb-4 text-2xl"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <h4 class="text-xl font-black text-brand-text mb-2" data-i18n="val6_t">الرحمة المسؤولة</h4>
+                            <p class="text-brand-muted font-medium" data-i18n="val6_d">توازن بين القلب والنظام.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -351,7 +578,7 @@
                 </button>
                 <div class="mb-6 fade-up-element">
                     <h2 class="text-4xl md:text-6xl font-black mb-4 text-brand-text"><span class="text-brand-accent">|</span> <span data-i18n="nav_services">خدماتنا</span></h2>
-                    <p class="text-brand-muted text-xl max-w-2xl mt-4" data-i18n="srv_desc">نقدم مجموعة متكاملة من الخدمات المصممة خصيصاً لتلبية احتياجات أبنائنا.</p>
+                    <p class="text-brand-muted text-xl max-w-2xl mt-4 font-medium" data-i18n="srv_desc">نقدم مجموعة متكاملة من الخدمات المصممة خصيصاً لتلبية احتياجات أبنائنا.</p>
                 </div>
                 <div id="servicesContainer" class="flex flex-col gap-8 fade-up-element" style="transition-delay: 0.2s;">
                     <!-- Dynamic Service Categories and Cards -->
@@ -367,7 +594,7 @@
                 </button>
                 <div class="mb-12 fade-up-element">
                     <h2 class="text-4xl md:text-6xl font-black mb-4 text-brand-text"><span class="text-brand-accent">|</span> <span data-i18n="nav_news">أخبار وحملات</span></h2>
-                    <p class="text-brand-muted text-xl" data-i18n="nw_desc">أحدث نشاطات وتحديثات جمعية الرجاء.</p>
+                    <p class="text-brand-muted text-xl font-medium" data-i18n="nw_desc">أحدث نشاطات وتحديثات جمعية الرجاء.</p>
                 </div>
                 
                 <div id="newsContainer" class="space-y-10 fade-up-element" style="transition-delay: 0.1s;">
@@ -382,22 +609,22 @@
                 <button onclick="navigateTo('view-home')" class="mb-8 text-brand-muted hover:text-brand-accent flex items-center gap-2 font-bold transition-colors">
                     <i class="fa-solid fa-arrow-right rtl:fa-arrow-left"></i> <span data-i18n="btn_back">العودة للرئيسية</span>
                 </button>
-                <div class="glass-panel p-10 rounded-[2rem] fade-up-element relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl"></div>
+                <div class="glass-panel p-10 rounded-[2.5rem] fade-up-element relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-brand-accent/20 rounded-full blur-[50px]"></div>
                     <h2 class="text-4xl font-black text-brand-text mb-4 relative z-10"><span class="text-brand-accent">|</span> <span data-i18n="vl_t">طلب تطوع</span></h2>
-                    <p class="text-brand-muted mb-10 text-lg relative z-10" data-i18n="vl_d">كن جزءاً من فريقنا وساهم في إحداث فرق.</p>
+                    <p class="text-brand-muted mb-10 text-lg relative z-10 font-medium" data-i18n="vl_d">كن جزءاً من فريقنا وساهم في إحداث فرق.</p>
                     <form onsubmit="handleFormSubmit(event, 'volunteer')" class="space-y-6 relative z-10">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-brand-muted text-sm mb-2 font-bold" data-i18n="lbl_name">الاسم</label>
-                                <input type="text" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all text-brand-text">
+                                <input type="text" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all text-brand-text">
                             </div>
                             <div>
                                 <label class="block text-brand-muted text-sm mb-2 font-bold" data-i18n="lbl_phone">رقم الهاتف</label>
-                                <input type="tel" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all text-brand-text dir-ltr">
+                                <input type="tel" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all text-brand-text dir-ltr">
                             </div>
                         </div>
-                        <button type="submit" class="btn-accent w-full py-4 rounded-xl font-bold text-xl mt-6 shadow-[0_0_20px_rgba(250,204,21,0.3)] flex justify-center items-center gap-2">
+                        <button type="submit" class="btn-accent w-full py-4 rounded-2xl font-bold text-xl mt-6 shadow-[0_0_25px_rgba(255,215,0,0.4)] flex justify-center items-center gap-3">
                             <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_send">إرسال الطلب</span>
                         </button>
                     </form>
@@ -411,22 +638,22 @@
                 <button onclick="navigateTo('view-home')" class="mb-8 text-brand-muted hover:text-brand-accent flex items-center gap-2 font-bold transition-colors">
                     <i class="fa-solid fa-arrow-right rtl:fa-arrow-left"></i> <span data-i18n="btn_back">العودة للرئيسية</span>
                 </button>
-                <div class="glass-panel p-10 rounded-[2rem] fade-up-element relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-accent/10 rounded-full blur-3xl"></div>
+                <div class="glass-panel p-10 rounded-[2.5rem] fade-up-element relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-brand-accent/20 rounded-full blur-[50px]"></div>
                     <h2 class="text-4xl font-black text-brand-text mb-4 relative z-10"><span class="text-brand-accent">|</span> <span data-i18n="rg_t">تسجيل طفل</span></h2>
-                    <p class="text-brand-muted mb-10 text-lg relative z-10" data-i18n="rg_d">تعبئة بيانات الطفل بدقة لتحديد البرنامج المناسب.</p>
+                    <p class="text-brand-muted mb-10 text-lg relative z-10 font-medium" data-i18n="rg_d">تعبئة بيانات الطفل بدقة لتحديد البرنامج المناسب.</p>
                     <form onsubmit="handleFormSubmit(event, 'registerChild')" class="space-y-6 relative z-10">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-brand-muted text-sm mb-2 font-bold" data-i18n="lbl_name">الاسم</label>
-                                <input type="text" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all text-brand-text">
+                                <input type="text" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all text-brand-text">
                             </div>
                             <div>
                                 <label class="block text-brand-muted text-sm mb-2 font-bold" data-i18n="lbl_phone">رقم ولي الأمر</label>
-                                <input type="tel" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all text-brand-text dir-ltr">
+                                <input type="tel" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all text-brand-text dir-ltr">
                             </div>
                         </div>
-                        <button type="submit" class="btn-accent w-full py-4 rounded-xl font-bold text-xl mt-6 shadow-[0_0_20px_rgba(250,204,21,0.3)] flex justify-center items-center gap-2">
+                        <button type="submit" class="btn-accent w-full py-4 rounded-2xl font-bold text-xl mt-6 shadow-[0_0_25px_rgba(255,215,0,0.4)] flex justify-center items-center gap-3">
                             <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_send">إرسال الطلب</span>
                         </button>
                     </form>
@@ -434,67 +661,67 @@
             </div>
         </div>
 
-        <!-- VIEW: ADMIN PANEL (Tabs Updated for Categories) -->
+        <!-- VIEW: ADMIN PANEL -->
         <div id="view-admin" class="page-view py-10">
             <div class="container mx-auto px-4 max-w-6xl text-start">
-                <div class="glass-panel p-6 md:p-10 rounded-[2.5rem] border-2 border-brand-accent/30 shadow-[0_0_40px_rgba(250,204,21,0.1)]">
+                <div class="glass-panel p-6 md:p-10 rounded-[3rem] border-2 border-brand-accent/30 shadow-[0_0_50px_rgba(255,215,0,0.15)]">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-gray-300 dark:border-white/10 pb-6 gap-4">
                         <h2 class="text-3xl font-black text-brand-text flex items-center gap-3">
-                            <i class="fa-solid fa-microchip text-brand-accent animate-pulse"></i> مركز التحكم 2026
+                            <i class="fa-solid fa-microchip text-brand-accent animate-pulse drop-shadow-[0_0_10px_rgba(255,215,0,0.8)]"></i> مركز التحكم 2026
                         </h2>
-                        <button onclick="adminLogout()" class="px-5 py-2.5 rounded-xl bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all font-bold flex items-center gap-2">
+                        <button onclick="adminLogout()" class="px-5 py-2.5 rounded-xl bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all font-bold flex items-center gap-2 border border-red-500/20">
                             <i class="fa-solid fa-right-from-bracket"></i> تسجيل خروج
                         </button>
                     </div>
 
                     <!-- Admin Tabs -->
                     <div class="flex flex-wrap gap-4 mb-8">
-                        <button onclick="switchAdminTab('news')" id="tab-news" class="admin-tab active px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-bullhorn"></i> <span data-i18n="admin_tab_news">إدارة الأخبار</span></button>
-                        <button onclick="switchAdminTab('categories')" id="tab-categories" class="admin-tab inactive px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> <span data-i18n="admin_tab_categories">إدارة الأقسام</span></button>
-                        <button onclick="switchAdminTab('services')" id="tab-services" class="admin-tab inactive px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-hand-holding-heart"></i> <span data-i18n="admin_tab_services">إدارة الخدمات</span></button>
+                        <button onclick="switchAdminTab('news')" id="tab-news" class="admin-tab active px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-bullhorn"></i> <span data-i18n="admin_tab_news">إدارة الأخبار</span></button>
+                        <button onclick="switchAdminTab('categories')" id="tab-categories" class="admin-tab inactive px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-layer-group"></i> <span data-i18n="admin_tab_categories">إدارة الأقسام</span></button>
+                        <button onclick="switchAdminTab('services')" id="tab-services" class="admin-tab inactive px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2"><i class="fa-solid fa-hand-holding-heart"></i> <span data-i18n="admin_tab_services">إدارة الخدمات</span></button>
                     </div>
                     
                     <!-- 1. NEWS SECTION -->
                     <div id="adminNewsSection">
-                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#020617]/60 rounded-3xl border border-white/5">
-                            <h3 class="text-xl font-bold mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminFormTitle">إضافة منشور جديد (متعدد اللغات)</h3>
+                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#01010a]/60 rounded-[2.5rem] border border-white/5 shadow-inner">
+                            <h3 class="text-xl font-black mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminFormTitle">إضافة منشور جديد (متعدد اللغات)</h3>
                             <form onsubmit="handleAdminSubmit(event)" class="space-y-8">
                                 <input type="hidden" id="editNewsId">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-sm text-brand-muted mb-2 font-bold"><i class="fa-regular fa-calendar text-brand-accent mr-1 rtl:ml-1"></i> تاريخ النشر</label>
-                                        <input type="date" id="newsDate" required class="w-full bg-white/50 dark:bg-[#020617] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-brand-text focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all outline-none">
+                                        <input type="date" id="newsDate" required class="w-full bg-white/50 dark:bg-[#01010a] border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 text-brand-text focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all outline-none">
                                     </div>
                                     <div>
                                         <label class="block text-sm text-brand-muted mb-2 font-bold"><i class="fa-regular fa-image text-brand-accent mr-1 rtl:ml-1"></i> رابط الصورة <span class="text-xs font-normal text-brand-muted/70">(اتركه فارغاً ليعمل الترقيم التلقائي)</span></label>
-                                        <input type="url" id="newsImage" placeholder="https://... أو اتركه فارغاً" class="w-full bg-white/50 dark:bg-[#020617] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all outline-none text-left dir-ltr">
+                                        <input type="url" id="newsImage" placeholder="https://... أو اتركه فارغاً" class="w-full bg-white/50 dark:bg-[#01010a] border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all outline-none text-left dir-ltr">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                    <div class="p-6 rounded-2xl bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_15px_rgba(250,204,21,0.1)] relative">
+                                    <div class="p-6 rounded-[2rem] bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_20px_rgba(255,215,0,0.15)] relative overflow-hidden">
                                         <div class="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"></div>
                                         <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-brand-accent"></i> العربية (إجباري)</h4>
-                                        <input type="text" id="newsTitleAr" placeholder="عنوان الخبر..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-brand-accent outline-none text-brand-text font-bold">
-                                        <textarea id="newsContentAr" rows="5" placeholder="التفاصيل..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-brand-accent outline-none text-brand-text resize-none"></textarea>
+                                        <input type="text" id="newsTitleAr" placeholder="عنوان الخبر..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-brand-accent outline-none text-brand-text font-bold">
+                                        <textarea id="newsContentAr" rows="5" placeholder="التفاصيل..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-brand-accent outline-none text-brand-text resize-none font-medium"></textarea>
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-400"></i> English</h4>
-                                        <input type="text" id="newsTitleEn" placeholder="Title..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-blue-400 outline-none text-brand-text font-bold dir-ltr text-left">
-                                        <textarea id="newsContentEn" rows="5" placeholder="Content..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-blue-400 outline-none text-brand-text resize-none dir-ltr text-left"></textarea>
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-500"></i> English</h4>
+                                        <input type="text" id="newsTitleEn" placeholder="Title..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-blue-500 outline-none text-brand-text font-bold dir-ltr text-left">
+                                        <textarea id="newsContentEn" rows="5" placeholder="Content..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-blue-500 outline-none text-brand-text resize-none dir-ltr text-left font-medium"></textarea>
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-400"></i> Türkçe</h4>
-                                        <input type="text" id="newsTitleTr" placeholder="Başlık..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-red-400 outline-none text-brand-text font-bold dir-ltr text-left">
-                                        <textarea id="newsContentTr" rows="5" placeholder="İçerik..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-red-400 outline-none text-brand-text resize-none dir-ltr text-left"></textarea>
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-500"></i> Türkçe</h4>
+                                        <input type="text" id="newsTitleTr" placeholder="Başlık..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-red-500 outline-none text-brand-text font-bold dir-ltr text-left">
+                                        <textarea id="newsContentTr" rows="5" placeholder="İçerik..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-red-500 outline-none text-brand-text resize-none dir-ltr text-left font-medium"></textarea>
                                     </div>
                                 </div>
                                 <div class="flex gap-4 justify-end pt-4">
-                                    <button type="button" onclick="resetAdminForm()" class="px-6 py-3.5 rounded-xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminCancelBtn">إلغاء التعديل</button>
-                                    <button type="submit" class="btn-accent px-10 py-3.5 rounded-xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ ونشر</button>
+                                    <button type="button" onclick="resetAdminForm()" class="px-6 py-4 rounded-2xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminCancelBtn">إلغاء التعديل</button>
+                                    <button type="submit" class="btn-accent px-10 py-4 rounded-2xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ ونشر</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-3xl p-6 border border-white/10 shadow-inner">
+                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-[2.5rem] p-6 border border-white/10 shadow-inner">
                             <table class="w-full text-sm text-start" id="adminTableContent">
                                 <thead class="bg-gray-200 dark:bg-white/5 text-brand-muted">
                                     <tr>
@@ -511,31 +738,31 @@
 
                     <!-- 2. CATEGORIES SECTION -->
                     <div id="adminCategoriesSection" class="hidden">
-                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#020617]/60 rounded-3xl border border-white/5">
-                            <h3 class="text-xl font-bold mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminCatFormTitle" data-i18n="add_category">إضافة قسم جديد</h3>
+                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#01010a]/60 rounded-[2.5rem] border border-white/5 shadow-inner">
+                            <h3 class="text-xl font-black mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminCatFormTitle" data-i18n="add_category">إضافة قسم جديد</h3>
                             <form onsubmit="handleCategorySubmit(event)" class="space-y-8">
                                 <input type="hidden" id="editCatId">
                                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                    <div class="p-6 rounded-2xl bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_15px_rgba(250,204,21,0.1)] relative">
+                                    <div class="p-6 rounded-[2rem] bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_20px_rgba(255,215,0,0.15)] relative">
                                         <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-brand-accent"></i> العربية (إجباري)</h4>
-                                        <input type="text" id="catTitleAr" placeholder="اسم القسم بالعربية..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-brand-accent outline-none text-brand-text font-bold">
+                                        <input type="text" id="catTitleAr" placeholder="اسم القسم بالعربية..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-4 focus:border-brand-accent outline-none text-brand-text font-bold">
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-400"></i> English</h4>
-                                        <input type="text" id="catTitleEn" placeholder="Category Name..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-blue-400 outline-none text-brand-text font-bold dir-ltr text-left">
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-500"></i> English</h4>
+                                        <input type="text" id="catTitleEn" placeholder="Category Name..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-4 focus:border-blue-500 outline-none text-brand-text font-bold dir-ltr text-left">
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-400"></i> Türkçe</h4>
-                                        <input type="text" id="catTitleTr" placeholder="Kategori Adı..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-red-400 outline-none text-brand-text font-bold dir-ltr text-left">
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-500"></i> Türkçe</h4>
+                                        <input type="text" id="catTitleTr" placeholder="Kategori Adı..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-4 focus:border-red-500 outline-none text-brand-text font-bold dir-ltr text-left">
                                     </div>
                                 </div>
                                 <div class="flex gap-4 justify-end pt-4">
-                                    <button type="button" onclick="resetCatForm()" class="px-6 py-3.5 rounded-xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminCatCancelBtn">إلغاء</button>
-                                    <button type="submit" class="btn-accent px-10 py-3.5 rounded-xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ القسم</button>
+                                    <button type="button" onclick="resetCatForm()" class="px-6 py-4 rounded-2xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminCatCancelBtn">إلغاء</button>
+                                    <button type="submit" class="btn-accent px-10 py-4 rounded-2xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ القسم</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-3xl p-6 border border-white/10 shadow-inner">
+                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-[2.5rem] p-6 border border-white/10 shadow-inner">
                             <table class="w-full text-sm text-start">
                                 <thead class="bg-gray-200 dark:bg-white/5 text-brand-muted">
                                     <tr>
@@ -551,46 +778,46 @@
 
                     <!-- 3. SERVICES SECTION -->
                     <div id="adminServicesSection" class="hidden">
-                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#020617]/60 rounded-3xl border border-white/5">
-                            <h3 class="text-xl font-bold mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminSrvFormTitle" data-i18n="add_service">إضافة خدمة جديدة</h3>
+                        <div class="mb-12 p-6 md:p-8 glass-panel bg-white/40 dark:bg-[#01010a]/60 rounded-[2.5rem] border border-white/5 shadow-inner">
+                            <h3 class="text-xl font-black mb-8 text-brand-text flex items-center gap-2 border-r-4 border-brand-accent pr-3 rtl:pr-3 rtl:pl-0 rtl:border-r rtl:border-l-0 rtl:border-brand-accent" id="adminSrvFormTitle" data-i18n="add_service">إضافة خدمة جديدة</h3>
                             <form onsubmit="handleServiceSubmit(event)" class="space-y-8">
                                 <input type="hidden" id="editSrvId">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label class="block text-sm text-brand-muted mb-2 font-bold"><i class="fa-solid fa-layer-group text-brand-accent mr-1 rtl:ml-1"></i> اختر القسم التابع له <span class="text-red-500">*</span></label>
-                                        <select id="srvCategoryId" required class="w-full bg-white/50 dark:bg-[#020617] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-brand-text focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all outline-none">
+                                        <select id="srvCategoryId" required class="w-full bg-white/50 dark:bg-[#01010a] border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 text-brand-text focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all outline-none cursor-pointer">
                                             <!-- Options injected via JS -->
                                         </select>
                                     </div>
                                     <div>
                                         <label class="block text-sm text-brand-muted mb-2 font-bold"><i class="fa-solid fa-icons text-brand-accent mr-1 rtl:ml-1"></i> كود الأيقونة <span class="text-xs font-normal text-brand-muted/70">(مثال: fa-brain)</span></label>
-                                        <input type="text" id="srvIcon" placeholder="fa-solid fa-star" required class="w-full bg-white/50 dark:bg-[#020617] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 text-brand-text focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.2)] transition-all outline-none dir-ltr text-left">
+                                        <input type="text" id="srvIcon" placeholder="fa-solid fa-star" required class="w-full bg-white/50 dark:bg-[#01010a] border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 text-brand-text focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.2)] transition-all outline-none dir-ltr text-left">
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                                    <div class="p-6 rounded-2xl bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_15px_rgba(250,204,21,0.1)] relative">
+                                    <div class="p-6 rounded-[2rem] bg-white/60 dark:bg-black/60 border border-brand-accent/50 shadow-[0_0_20px_rgba(255,215,0,0.15)] relative">
                                         <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-brand-accent"></i> العربية (إجباري)</h4>
-                                        <input type="text" id="srvTitleAr" placeholder="اسم الخدمة..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-brand-accent outline-none text-brand-text font-bold">
-                                        <textarea id="srvDescAr" rows="3" placeholder="وصف الخدمة..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-brand-accent outline-none text-brand-text resize-none"></textarea>
+                                        <input type="text" id="srvTitleAr" placeholder="اسم الخدمة..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-brand-accent outline-none text-brand-text font-bold">
+                                        <textarea id="srvDescAr" rows="3" placeholder="وصف الخدمة..." required class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-brand-accent outline-none text-brand-text resize-none font-medium"></textarea>
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-400"></i> English</h4>
-                                        <input type="text" id="srvTitleEn" placeholder="Service Name..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-blue-400 outline-none text-brand-text font-bold dir-ltr text-left">
-                                        <textarea id="srvDescEn" rows="3" placeholder="Description..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-blue-400 outline-none text-brand-text resize-none dir-ltr text-left"></textarea>
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-blue-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-blue-500"></i> English</h4>
+                                        <input type="text" id="srvTitleEn" placeholder="Service Name..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-blue-500 outline-none text-brand-text font-bold dir-ltr text-left">
+                                        <textarea id="srvDescEn" rows="3" placeholder="Description..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-blue-500 outline-none text-brand-text resize-none dir-ltr text-left font-medium"></textarea>
                                     </div>
-                                    <div class="p-6 rounded-2xl bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-400/50 transition-colors">
-                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-400"></i> Türkçe</h4>
-                                        <input type="text" id="srvTitleTr" placeholder="Hizmet Adı..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 mb-4 focus:border-red-400 outline-none text-brand-text font-bold dir-ltr text-left">
-                                        <textarea id="srvDescTr" rows="3" placeholder="Açıklama..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-lg px-4 py-3 focus:border-red-400 outline-none text-brand-text resize-none dir-ltr text-left"></textarea>
+                                    <div class="p-6 rounded-[2rem] bg-white/30 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:border-red-500/50 transition-colors">
+                                        <h4 class="font-bold text-brand-text mb-4 flex items-center gap-2"><i class="fa-solid fa-language text-red-500"></i> Türkçe</h4>
+                                        <input type="text" id="srvTitleTr" placeholder="Hizmet Adı..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 mb-4 focus:border-red-500 outline-none text-brand-text font-bold dir-ltr text-left">
+                                        <textarea id="srvDescTr" rows="3" placeholder="Açıklama..." class="w-full bg-transparent border border-gray-300 dark:border-white/20 rounded-xl px-4 py-3 focus:border-red-500 outline-none text-brand-text resize-none dir-ltr text-left font-medium"></textarea>
                                     </div>
                                 </div>
                                 <div class="flex gap-4 justify-end pt-4">
-                                    <button type="button" onclick="resetSrvForm()" class="px-6 py-3.5 rounded-xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminSrvCancelBtn">إلغاء</button>
-                                    <button type="submit" class="btn-accent px-10 py-3.5 rounded-xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ الخدمة</button>
+                                    <button type="button" onclick="resetSrvForm()" class="px-6 py-4 rounded-2xl bg-gray-200 dark:bg-white/10 font-bold hover:bg-gray-300 dark:hover:bg-white/20 transition-colors hidden text-brand-text" id="adminSrvCancelBtn">إلغاء</button>
+                                    <button type="submit" class="btn-accent px-10 py-4 rounded-2xl font-bold flex items-center gap-2 text-lg"><i class="fa-solid fa-cloud-arrow-up"></i> حفظ الخدمة</button>
                                 </div>
                             </form>
                         </div>
-                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-3xl p-6 border border-white/10 shadow-inner">
+                        <div class="overflow-x-auto bg-white/60 dark:bg-black/40 rounded-[2.5rem] p-6 border border-white/10 shadow-inner">
                             <table class="w-full text-sm text-start">
                                 <thead class="bg-gray-200 dark:bg-white/5 text-brand-muted">
                                     <tr>
@@ -604,7 +831,6 @@
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -612,23 +838,23 @@
         <!-- VIEW: ADMIN LOGIN -->
         <div id="view-login" class="page-view py-20">
             <div class="container mx-auto px-4 flex justify-center">
-                <div class="glass-panel p-10 rounded-[2.5rem] w-full max-w-md border border-brand-accent/40 shadow-[0_0_40px_rgba(250,204,21,0.2)] relative overflow-hidden tilt-card" data-tilt data-tilt-max="3" data-tilt-glare data-tilt-max-glare="0.1">
-                    <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-accent/20 rounded-full blur-[40px]"></div>
-                    <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-blue-500/10 rounded-full blur-[40px]"></div>
+                <div class="glass-panel p-10 rounded-[3rem] w-full max-w-md border border-brand-accent/40 shadow-[0_0_50px_rgba(255,215,0,0.3)] relative overflow-hidden tilt-card" data-tilt data-tilt-max="3" data-tilt-glare data-tilt-max-glare="0.1">
+                    <div class="absolute -top-20 -right-20 w-48 h-48 bg-brand-accent/30 rounded-full blur-[50px]"></div>
+                    <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-blue-500/20 rounded-full blur-[50px]"></div>
                     
                     <div class="relative z-10">
-                        <div class="w-20 h-20 mx-auto bg-brand-accent/10 border-2 border-brand-accent rounded-full flex items-center justify-center text-4xl text-brand-accent mb-6 shadow-[0_0_20px_rgba(250,204,21,0.3)]">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-tr from-[#d4af37]/20 to-[#ffb300]/20 border-2 border-brand-accent rounded-[2rem] flex items-center justify-center text-5xl text-brand-accent mb-8 shadow-[0_0_25px_rgba(255,215,0,0.4)] animate-float">
                             <i class="fa-solid fa-fingerprint"></i>
                         </div>
                         <h2 class="text-3xl font-black mb-8 text-center text-brand-text">دخول الإدارة</h2>
                         <form onsubmit="handleLogin(event)" class="space-y-5">
                             <div>
-                                <input type="text" id="adminUser" placeholder="اسم المستخدم" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.3)] transition-all text-brand-text text-center text-lg tracking-wider">
+                                <input type="text" id="adminUser" placeholder="اسم المستخدم" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-all text-brand-text text-center text-lg tracking-wider font-bold">
                             </div>
                             <div>
-                                <input type="password" id="adminPass" placeholder="كلمة المرور" required class="w-full bg-white/5 dark:bg-[#020617]/50 border border-gray-300 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_15px_rgba(250,204,21,0.3)] transition-all text-brand-text text-center text-lg tracking-widest font-mono">
+                                <input type="password" id="adminPass" placeholder="كلمة المرور" required class="w-full bg-white/5 dark:bg-[#01010a]/50 border border-gray-300 dark:border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-all text-brand-text text-center text-lg tracking-widest font-mono font-bold">
                             </div>
-                            <button type="submit" class="btn-accent w-full py-4 rounded-xl font-bold text-xl shadow-[0_0_20px_rgba(250,204,21,0.4)] mt-4">تسجيل الدخول</button>
+                            <button type="submit" class="btn-accent w-full py-4 rounded-2xl font-bold text-xl shadow-[0_0_25px_rgba(255,215,0,0.5)] mt-6">تسجيل الدخول</button>
                         </form>
                     </div>
                 </div>
@@ -637,112 +863,183 @@
 
     </main>
 
-    <!-- Footer - تم دمج الروابط المطلوبة هنا -->
-    <footer class="glass-panel border-t border-gray-300 dark:border-white/5 mt-auto relative z-10 bg-white/50 dark:bg-[#020617]/80">
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-gray-300 dark:border-white/5 mt-auto relative z-10 bg-white/50 dark:bg-[#01010a]/80 !rounded-none">
         <div class="container mx-auto px-4 py-10">
             <div class="text-center text-sm text-brand-muted">
-                <!-- أيقونات التواصل الاجتماعي مع الروابط الدقيقة -->
                 <div class="flex justify-center gap-8 text-3xl mb-6">
-                    <a href="https://wa.me/963950088501" target="_blank" class="hover:text-green-500 hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/alraja2002?igsh=MXR2eHlvNzdicDVuMw==" target="_blank" class="hover:text-[#E1306C] hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/18tv9jtNK5/" target="_blank" class="hover:text-[#1877F2] hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://wa.me/963950088501" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب" class="hover:text-green-500 hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/alraja2002?igsh=MXR2eHlvNzdicDVuMw==" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام" class="hover:text-[#E1306C] hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/18tv9jtNK5/" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك" class="hover:text-[#1877F2] hover:scale-125 hover:-translate-y-2 transition-all duration-300 drop-shadow-lg"><i class="fa-brands fa-facebook"></i></a>
                 </div>
-                <p data-i18n="ft_copy" class="font-medium text-base">جميع الحقوق محفوظة -جمعية الرجاء الخيرية لذوي الإعاقة في حلب</p>
+                <p data-i18n="ft_copy" class="font-bold text-base tracking-wide">جميع الحقوق محفوظة -جمعية الرجاء الخيرية لذوي الإعاقة في حلب</p>
             </div>
         </div>
     </footer>
 
     <!-- Loading Modal -->
-    <div id="loadingModal" class="fixed inset-0 z-[120] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-        <div class="glass-panel p-6 rounded-2xl flex flex-col items-center shadow-[0_0_30px_rgba(250,204,21,0.3)] border border-brand-accent/50">
-            <div class="w-12 h-12 border-4 border-brand-accent border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p class="text-brand-text font-bold" data-i18n="loading_txt">جاري المعالجة...</p>
+    <div id="loadingModal" class="fixed inset-0 z-[120] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
+        <div class="glass-panel p-8 rounded-3xl flex flex-col items-center shadow-[0_0_40px_rgba(255,215,0,0.4)] border border-brand-accent/50">
+            <div class="w-14 h-14 border-4 border-brand-accent border-t-transparent rounded-full animate-spin mb-6 drop-shadow-[0_0_15px_rgba(255,215,0,0.8)]"></div>
+            <p class="text-brand-text font-bold text-lg tracking-wide" data-i18n="loading_txt">جاري المعالجة...</p>
         </div>
     </div>
 
     <script>
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzdf9ubeJocdzx9I5duGMNuhwsybX__L3i-WQzQtWr8qfttq1OF_8yuVY1ebxYyVuO_/exec';
 
+        // --- Splash Screen & Stars Canvas Logic ---
+        function initSplashStars() {
+            const canvas = document.getElementById('splash-canvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const stars = [];
+            for(let i=0; i<250; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5, speed: Math.random() * 0.5 + 0.1
+                });
+            }
+            function animateStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                stars.forEach(s => {
+                    ctx.beginPath(); ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2); ctx.fill();
+                    s.y += s.speed;
+                    if(s.y > canvas.height) s.y = 0;
+                });
+                if(document.getElementById('splash-screen')) requestAnimationFrame(animateStars);
+            }
+            animateStars();
+        }
+
+        // --- Animated Counters ---
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else { counter.innerText = target; }
+                };
+                updateCount();
+            });
+        }
+
+        // --- Accessibility Logic ---
+        function toggleA11y(type) {
+            const body = document.body;
+            if(type === 'motion') body.classList.toggle('a11y-no-motion');
+            if(type === 'contrast') body.classList.toggle('a11y-high-contrast');
+            if(type === 'font') body.classList.toggle('a11y-large-font');
+        }
+
+        // --- Security Function (XSS Prevention) ---
+        function sanitizeHTML(str) {
+            if (typeof str !== 'string') return str;
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        }
+
         // --- 1. Full-Site i18n Dictionary ---
         const translations = {
             ar: {
-                dir: 'rtl',
+                dir: 'rtl', splash_t1: 'جمعية الرجاء لذوي الإعاقة', splash_t2: 'تُرحب بكم',
                 logo_title: 'جمعية الرجاء الخيرية', logo_subtitle: 'لذوي الإعاقة في حلب',
                 nav_home: 'الرئيسية', nav_about: 'من نحن', nav_services: 'خدماتنا', nav_news: 'أخبار وحملات', nav_volunteer: 'تطوع معنا', nav_register: 'تسجيل طفل',
-                btn_donate_txt: 'تبرع', ticker_title: 'عاجل:', ticker_loading: 'جار التحميل...',
-                btn_back: 'العودة للرئيسية',
-                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> دمشق - حلب | نعمل معاً منذ 2010',
-                hero_t1: 'معاً نغدو لغداً أفضل', hero_t2: '',
-                hero_desc: 'نحن في جمعية الرجاء بحلب نسعى لتمكين ذوي الإعاقة، إبراز طاقاتهم، وتوفير بيئة داعمة ومبتكرة تضمن حقوقهم واندماجهم الكامل في المجتمع.',
-                c1_t: 'خدماتنا التأهيلية', c1_d: 'برامج متخصصة لدعم القدرات.',
+                btn_donate_txt: 'تبرع', ticker_title: 'عاجل:', ticker_loading: 'جار التحميل...', btn_back: 'العودة للرئيسية',
+                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> حلب | 25 سنة من العمل المستمر',
+                hero_t1: 'معاً نغدو لغدٍ أفضل', hero_desc: 'نحن في جمعية الرجاء بحلب نسعى لتمكين ذوي الإعاقة، إبراز طاقاتهم، وتوفير بيئة داعمة ومبتكرة تضمن حقوقهم واندماجهم الكامل في المجتمع.',
+                c1_t: 'خدماتنا', c1_d: 'برامج متخصصة لدعم القدرات وتطوير المهارات الحركية والذهنية بأحدث الطرق.',
                 c2_t: 'تسجيل المستفيدين', c2_d: 'انضم لبرامجنا التعليمية والصحية.',
-                c3_t: 'أخبار وحملات', c3_d: 'تابع أحدث إنجازاتنا ونشاطاتنا.',
-                ab_desc: 'جمعية الرجاء هي مؤسسة أهلية غير ربحية تهدف إلى رعاية وتأهيل ذوي الإعاقة.',
-                ab_v_t: 'رؤيتنا', ab_v_d: 'مجتمع شامل يضمن للأشخاص ذوي الإعاقة حقوقهم الكاملة ويحفزهم ليكونوا أفراداً منتجين.',
-                ab_s1: 'عاماً من العطاء', ab_s2: 'مستفيد مسجل',
-                ab_m_t: 'رسالتنا', ab_m_d: 'تقديم خدمات تأهيلية وتعليمية ونفسية عالية الجودة، وتوعية المجتمع لتغيير النظرة النمطية.',
+                c3_t: 'أخبار وحملات', c3_d: 'تابع أحدث إنجازاتنا ونشاطاتنا الميدانية.',
+                ab_desc: 'جمعية الرجاء لذوي الإعاقة هي جمعية أهلية غير ربحية تقدم خدمات متخصصة للأطفال واليافعين من ذوي الإعاقات الذهنية، واضطراب طيف التوحد. نعمل عبر منظومة متكاملة تشمل التأهيل والعلاج، الدعم النفسي، التعليم الداعم، والتدريب المهني. تعتمد الجمعية منهجية عمل قائمة على التقييم الفردي مع اعتبار الأسرة شريكاً أساسياً في تحقيق الأثر والتكامل المجتمعي.',
+                ab_v_t: 'رؤيتنا', ab_v_d: 'مجتمع شامل في سوريا حلب تتاح فيه الفرص بعدالة، ويعيش فيه الأطفال واليافعين من ذوي الإعاقة بكرامة واستقلالية، ويشاركون في التعليم والحياة العامة دون عوائق.',
+                ab_m_t: 'رسالتنا', ab_m_d: 'تقديم خدمات تأهيلية وتعليمية ونفسية متكاملة مع دعم فاعل للأسر، عبر برامج مهنية و شراكات مجتمعية تسهم في الدمج المدرسي والتمكين المهني.',
+                ab_m1_d: 'أحدثت بالقرار 973', ab_m2_d: 'أشهرت بالقرار 1234', ab_m3_d: 'رؤية جديدة وشاملة',
+                ab_val_t: 'قيمنا', 
+                val1_t: 'الكرامة الإنسانية', val1_d: 'احترام الإنسان وحقوقه دون تمييز.', 
+                val2_t: 'الشمول والدمج', val2_d: 'تعزيز الوصول والاندماج في المجتمع.', 
+                val3_t: 'الشراكة', val3_d: 'التعاون مع الأسرة والمؤسسات.', 
+                val4_t: 'التمكين', val4_d: 'تحويل الاحتياج إلى قدرة واستقلال.', 
+                val5_t: 'الاحترافية', val5_d: 'خدمات مبنية على معايير الجودة.', 
+                val6_t: 'الرحمة المسؤولة', val6_d: 'توازن بين القلب والنظام.',
                 srv_desc: 'نقدم مجموعة متكاملة من الخدمات المصممة خصيصاً لتلبية احتياجات أبنائنا.',
                 nw_desc: 'أحدث نشاطات وتحديثات جمعية الرجاء.', nw_empty: 'لا توجد منشورات حالياً.',
                 vl_t: 'طلب تطوع', vl_d: 'كن جزءاً من فريقنا وساهم في إحداث فرق.',
                 rg_t: 'تسجيل طفل', rg_d: 'تعبئة بيانات الطفل بدقة لتحديد البرنامج المناسب.',
                 lbl_name: 'الاسم', lbl_phone: 'رقم الهاتف', btn_send: 'إرسال الطلب',
                 ft_copy: 'جميع الحقوق محفوظة -جمعية الرجاء الخيرية لذوي الإعاقة في حلب',
-                loading_txt: 'جاري المعالجة...', msg_donate: 'البوابة قيد التجهيز!',
-                btn_like: 'إعجاب', btn_share: 'مشاركة',
+                loading_txt: 'جاري المعالجة...', msg_donate: 'البوابة قيد التجهيز!', btn_like: 'إعجاب', btn_share: 'مشاركة',
                 admin_tab_news: 'إدارة الأخبار', admin_tab_categories: 'إدارة الأقسام', admin_tab_services: 'إدارة الخدمات',
                 add_category: 'إضافة قسم جديد', add_service: 'إضافة خدمة جديدة', edit_service: 'تعديل الخدمة'
             },
             en: {
-                dir: 'ltr',
+                dir: 'ltr', splash_t1: 'Al-Rajaa Charity', splash_t2: 'Welcomes You',
                 logo_title: 'Al-Rajaa Charity', logo_subtitle: 'For Disabilities in Aleppo',
                 nav_home: 'Home', nav_about: 'About Us', nav_services: 'Services', nav_news: 'News', nav_volunteer: 'Volunteer', nav_register: 'Register',
-                btn_donate_txt: 'Donate', ticker_title: 'Breaking:', ticker_loading: 'Loading...',
-                btn_back: 'Back to Home',
-                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> Damascus - Aleppo | Since 2010',
-                hero_t1: 'Together we step into a better tomorrow', hero_t2: '',
-                hero_desc: 'At Al-Rajaa Charity in Aleppo, we aim to empower people with disabilities and provide an innovative environment ensuring their full integration into society.',
-                c1_t: 'Rehabilitation', c1_d: 'Specialized support programs.',
+                btn_donate_txt: 'Donate', ticker_title: 'Breaking:', ticker_loading: 'Loading...', btn_back: 'Back to Home',
+                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> Aleppo | 25 Years of Continuous Work',
+                hero_t1: 'Together we step into a better tomorrow', hero_desc: 'At Al-Rajaa Charity in Aleppo, we aim to empower people with disabilities and provide an innovative environment ensuring their full integration into society.',
+                c1_t: 'Services', c1_d: 'Specialized programs supporting mental and physical skills.',
                 c2_t: 'Beneficiary Reg.', c2_d: 'Join our educational programs.',
-                c3_t: 'News & Campaigns', c3_d: 'Follow our latest activities.',
-                ab_desc: 'Al-Rajaa is a non-profit NGO dedicated to the care and rehabilitation of disabled individuals.',
-                ab_v_t: 'Our Vision', ab_v_d: 'An inclusive society ensuring full rights and encouraging productivity.',
-                ab_s1: 'Years of Giving', ab_s2: 'Registered',
-                ab_m_t: 'Our Mission', ab_m_d: 'Providing high-quality psychological, educational, and physical services.',
+                c3_t: 'News & Campaigns', c3_d: 'Follow our latest field activities.',
+                ab_desc: 'Al-Rajaa Association for Disabilities is a non-profit NGO providing specialized services for children and adolescents with intellectual disabilities and autism spectrum disorder. We operate through an integrated system including rehabilitation, therapy, psychological support, special education, and vocational training. The association relies on an individualized assessment methodology, considering the family as a key partner in achieving impact and social integration.',
+                ab_v_t: 'Our Vision', ab_v_d: 'An inclusive society in Aleppo, Syria, where opportunities are fairly available, and children and adolescents with disabilities live with dignity and independence, participating in education and public life without barriers.',
+                ab_m_t: 'Our Mission', ab_m_d: 'Providing integrated rehabilitation, educational, and psychological services with active family support, through vocational programs and community partnerships contributing to school inclusion and vocational empowerment.',
+                ab_m1_d: 'Established by Resolution 973', ab_m2_d: 'Announced by Resolution 1234', ab_m3_d: 'A New Comprehensive Vision',
+                ab_val_t: 'Our Values', 
+                val1_t: 'Human Dignity', val1_d: 'Respecting humans and their rights without discrimination.', 
+                val2_t: 'Inclusion & Integration', val2_d: 'Enhancing accessibility and integration into society.', 
+                val3_t: 'Partnership', val3_d: 'Cooperating with families and institutions.', 
+                val4_t: 'Empowerment', val4_d: 'Transforming need into ability and independence.', 
+                val5_t: 'Professionalism', val5_d: 'Services built on quality standards.', 
+                val6_t: 'Responsible Compassion', val6_d: 'A balance between heart and system.',
                 srv_desc: 'We offer integrated services specifically designed for our children.',
                 nw_desc: 'Latest updates and campaigns.', nw_empty: 'No posts available.',
                 vl_t: 'Volunteer Request', vl_d: 'Join our team and make a difference.',
                 rg_t: 'Register a Child', rg_d: 'Fill in details to determine the best program.',
                 lbl_name: 'Full Name', lbl_phone: 'Phone Number', btn_send: 'Submit Request',
                 ft_copy: 'All Rights Reserved - Al-Rajaa Charity for Disabilities in Aleppo',
-                loading_txt: 'Processing...', msg_donate: 'Payment gateway coming soon.',
-                btn_like: 'Like', btn_share: 'Share',
+                loading_txt: 'Processing...', msg_donate: 'Payment gateway coming soon.', btn_like: 'Like', btn_share: 'Share',
                 admin_tab_news: 'Manage News', admin_tab_categories: 'Manage Categories', admin_tab_services: 'Manage Services',
                 add_category: 'Add New Category', add_service: 'Add New Service', edit_service: 'Edit Service'
             },
             tr: {
-                dir: 'ltr',
+                dir: 'ltr', splash_t1: 'Er-Raca Derneği', splash_t2: 'Hoşgeldiniz',
                 logo_title: 'Er-Raca Derneği', logo_subtitle: 'Halep Engelliler İçin',
                 nav_home: 'Ana Sayfa', nav_about: 'Hakkımızda', nav_services: 'Hizmetler', nav_news: 'Haberler', nav_volunteer: 'Gönüllü Ol', nav_register: 'Kayıt',
-                btn_donate_txt: 'Bağış Yap', ticker_title: 'Son Dakika:', ticker_loading: 'Yükleniyor...',
-                btn_back: 'Ana Sayfaya Dön',
-                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> Şam - Halep | 2010\'dan Beri',
-                hero_t1: 'Birlikte daha iyi bir yarına adım atıyoruz', hero_t2: '',
-                hero_desc: 'Halep\'teki Er-Raca Derneği olarak engellileri güçlendirmeyi ve topluma tam entegrasyonlarını sağlamayı hedefliyoruz.',
-                c1_t: 'Rehabilitasyon', c1_d: 'Özel destek programları.',
+                btn_donate_txt: 'Bağış Yap', ticker_title: 'Son Dakika:', ticker_loading: 'Yükleniyor...', btn_back: 'Ana Sayfaya Dön',
+                hero_badge: '<i class="fa-solid fa-location-dot mx-1"></i> Halep | 25 Yıllık Kesintisiz Çalışma',
+                hero_t1: 'Birlikte daha iyi bir yarına adım atıyoruz', hero_desc: 'Halep\'teki Er-Raca Derneği olarak engellileri güçlendirmeyi ve topluma tam entegrasyonlarını sağlamayı hedefliyoruz.',
+                c1_t: 'Hizmetler', c1_d: 'Zihinsel ve fiziksel becerileri destekleyen özel programlar.',
                 c2_t: 'Kayıt Ol', c2_d: 'Eğitim programlarımıza katılın.',
-                c3_t: 'Haberler', c3_d: 'En son etkinliklerimizi takip edin.',
-                ab_desc: 'Er-Raca, engelli bireylerin bakımı ve rehabilitasyonuna adanmış kar amacı gütmeyen bir STK\'dır.',
-                ab_v_t: 'Vizyonumuz', ab_v_d: 'Tam haklar sağlayan ve üretkenliği teşvik eden kapsayıcı bir toplum.',
-                ab_s1: 'Yıllık Hizmet', ab_s2: 'Kayıtlı Kişi',
-                ab_m_t: 'Misyonumuz', ab_m_d: 'Yüksek kaliteli psikolojik ve fiziksel hizmetler sunmak.',
+                c3_t: 'Haberler', c3_d: 'En son saha etkinliklerimizi takip edin.',
+                ab_desc: 'Er-Raca Engelliler Derneği, zihinsel engelli ve otizm spektrum bozukluğu olan çocuklara ve ergenlere özel hizmetler sunan kâr amacı gütmeyen bir STK\'dır. Rehabilitasyon, terapi, psikolojik destek, özel eğitim ve meslek eğitimi içeren entegre bir sistemle çalışıyoruz. Dernek, aileyi etki ve sosyal entegrasyon sağlamada önemli bir ortak olarak görerek bireyselleştirilmiş değerlendirme metodolojisine dayanır.',
+                ab_v_t: 'Vizyonumuz', ab_v_d: 'Suriye, Halep\'te fırsatların adil bir şekilde sunulduğu, engelli çocukların ve ergenlerin onur ve bağımsızlıkla yaşadığı, eğitim ve kamusal hayata engelsiz bir şekilde katıldığı kapsayıcı bir toplum.',
+                ab_m_t: 'Misyonumuz', ab_m_d: 'Okul entegrasyonuna ve mesleki güçlendirmeye katkıda bulunan mesleki programlar ve toplumsal ortaklıklar aracılığıyla, aktif aile desteği ile entegre rehabilitasyon, eğitim ve psikolojik hizmetler sunmak.',
+                ab_m1_d: '973 Sayılı Karar ile Kuruldu', ab_m2_d: '1234 Sayılı Karar ile İlan Edildi', ab_m3_d: 'Yeni ve Kapsamlı Bir Vizyon',
+                ab_val_t: 'Değerlerimiz', 
+                val1_t: 'İnsan Onuru', val1_d: 'İnsanlara ve haklarına ayrım gözetmeksizin saygı duymak.', 
+                val2_t: 'Kapsayıcılık ve Entegrasyon', val2_d: 'Topluma erişimi ve entegrasyonu artırmak.', 
+                val3_t: 'Ortaklık', val3_d: 'Aileler ve kurumlarla işbirliği.', 
+                val4_t: 'Güçlendirme', val4_d: 'İhtiyacı yetenek ve bağımsızlığa dönüştürmek.', 
+                val5_t: 'Profesyonellik', val5_d: 'Kalite standartlarına dayalı hizmetler.', 
+                val6_t: 'Sorumlu Merhamet', val6_d: 'Kalp ve sistem arasında bir denge.',
                 srv_desc: 'Çocuklarımız için özel tasarlanmış entegre hizmetler sunuyoruz.',
                 nw_desc: 'Güncel haberler ve kampanyalar.', nw_empty: 'Henüz gönderi yok.',
                 vl_t: 'Gönüllü Ol', vl_d: 'Ekibimize katılın ve fark yaratın.',
                 rg_t: 'Çocuk Kaydı', rg_d: 'En iyi programı belirlemek için doldurun.',
                 lbl_name: 'İsim', lbl_phone: 'Telefon Numarası', btn_send: 'Gönder',
                 ft_copy: 'Tüm Hakları Saklıdır - Halep Er-Raca Engelliler Derneği',
-                loading_txt: 'İşleniyor...', msg_donate: 'Bağış sistemi yakında.',
-                btn_like: 'Beğen', btn_share: 'Paylaş',
+                loading_txt: 'İşleniyor...', msg_donate: 'Bağış sistemi yakında.', btn_like: 'Beğen', btn_share: 'Paylaş',
                 admin_tab_news: 'Haberleri Yönet', admin_tab_categories: 'Kategorileri Yönet', admin_tab_services: 'Hizmetleri Yönet',
                 add_category: 'Yeni Kategori Ekle', add_service: 'Yeni Hizmet Ekle', edit_service: 'Hizmeti Düzenle'
             }
@@ -750,11 +1047,10 @@
 
         function changeLanguage(lang) {
             localStorage.setItem('siteLang', lang);
-            document.documentElement.lang = lang;
-            document.documentElement.dir = translations[lang].dir;
+            document.documentElement.lang = lang; document.documentElement.dir = translations[lang].dir;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+                if (translations[lang][key]) { el.innerHTML = translations[lang][key]; } 
             });
             updateTickerUI();
             if(document.querySelector('#view-news.active')) renderNews(); 
@@ -764,8 +1060,7 @@
 
         // --- 2. Theme Management ---
         function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('themeIcon');
+            const html = document.documentElement; const icon = document.getElementById('themeIcon');
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark'); localStorage.setItem('theme', 'light');
                 icon.className = 'fa-solid fa-sun text-orange-500';
@@ -780,10 +1075,7 @@
         try { isAdminAuthenticated = sessionStorage.getItem('adminAuth') === 'true'; } catch(e){}
         function setAuthSession(status) {
             isAdminAuthenticated = status;
-            try {
-                if(status) sessionStorage.setItem('adminAuth', 'true');
-                else sessionStorage.removeItem('adminAuth');
-            } catch(e){}
+            try { if(status) sessionStorage.setItem('adminAuth', 'true'); else sessionStorage.removeItem('adminAuth'); } catch(e){}
         }
 
         function triggerFadeUp() {
@@ -795,8 +1087,7 @@
 
         function navigateTo(viewId) {
             const newHash = viewId.replace('view-', '');
-            if (window.location.hash === '#' + newHash) { handleRouteChange(); } 
-            else { window.location.hash = newHash; }
+            if (window.location.hash === '#' + newHash) { handleRouteChange(); } else { window.location.hash = newHash; }
         }
 
         function handleRouteChange() {
@@ -805,8 +1096,7 @@
             const viewName = hash.substring(1);
             
             if (viewName === 'admin') {
-                if (isAdminAuthenticated) { showView('view-admin'); switchAdminTab('news'); }
-                else showView('view-login');
+                if (isAdminAuthenticated) { showView('view-admin'); switchAdminTab('news'); } else showView('view-login');
                 return;
             }
             const targetViewId = 'view-' + viewName;
@@ -830,21 +1120,19 @@
         function showToast(text, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            const icon = type === 'error' ? '<i class="fa-solid fa-triangle-exclamation text-red-500"></i>' : '<i class="fa-solid fa-circle-check text-green-500"></i>';
-            const borderGlow = type === 'error' ? 'border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'border-green-500/50 shadow-[0_0_15px_rgba(34,197,94,0.2)]';
+            const icon = type === 'error' ? '<i class="fa-solid fa-triangle-exclamation text-red-500"></i>' : '<i class="fa-solid fa-circle-check text-[#ffd700]"></i>';
+            const borderGlow = type === 'error' ? 'border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]' : 'border-[#ffd700]/50 shadow-[0_0_20px_rgba(255,215,0,0.3)]';
             
-            toast.className = `toast-msg glass-panel p-4 rounded-xl flex items-center gap-3 border ${borderGlow} bg-white/80 dark:bg-black/80 min-w-[250px]`;
+            toast.className = `toast-msg glass-panel p-4 rounded-xl flex items-center gap-3 border ${borderGlow} bg-white/80 dark:bg-[#01010a]/90 min-w-[250px]`;
             toast.innerHTML = `<div class="text-xl">${icon}</div><div class="font-bold text-brand-text text-sm">${text}</div>`;
             
             container.appendChild(toast);
             setTimeout(() => toast.classList.add('show'), 10);
-            setTimeout(() => {
-                toast.classList.remove('show'); toast.classList.add('hide');
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
+            setTimeout(() => { toast.classList.remove('show'); toast.classList.add('hide'); setTimeout(() => toast.remove(), 400); }, 3000);
         }
 
-        function showLoading() { 
+        function showLoading(force = false) { 
+            if(document.getElementById('splash-screen') && !force) return; // Prevent loading over splash
             const loader = document.getElementById('loadingModal');
             loader.classList.remove('hidden'); loader.classList.add('opacity-0');
             setTimeout(() => loader.classList.remove('opacity-0'), 10);
@@ -856,7 +1144,7 @@
         }
 
         async function handleFormSubmit(e, actionType) { 
-            e.preventDefault(); showLoading();
+            e.preventDefault(); showLoading(true);
             const inputs = e.target.querySelectorAll('input');
             try {
                 const response = await fetch(GAS_URL, {
@@ -876,19 +1164,47 @@
             return dataObj[currentLang] || dataObj['ar'] || ''; 
         }
 
+        // --- NEW: Cloud Data Sync Functions ---
+        async function fetchInitialData() {
+            try {
+                const response = await fetch(GAS_URL, {
+                    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, redirect: 'follow',
+                    body: JSON.stringify({ action: 'getAllData' })
+                });
+                const result = await response.json();
+                if(result.success && result.data) {
+                    newsData = result.data.news || []; categoriesData = result.data.categories || []; servicesData = result.data.services || [];
+                    if(categoriesData.length === 0) categoriesData = [...defaultCategories];
+                    if(servicesData.length === 0) servicesData = [...defaultServices];
+                    localStorage.setItem('alrajaa_news', JSON.stringify(newsData));
+                    localStorage.setItem('alrajaa_cats', JSON.stringify(categoriesData));
+                    localStorage.setItem('alrajaa_services', JSON.stringify(servicesData));
+                }
+            } catch(e) { console.error('Data fetch error, using local fallback'); }
+            renderNews(); renderServices(); renderAdminCategories(); updateTickerUI();
+        }
+
+        async function syncDataToCloud(dataType, dataArray) {
+            try {
+                const response = await fetch(GAS_URL, {
+                    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, redirect: 'follow',
+                    body: JSON.stringify({ action: 'syncData', dataType: dataType, items: dataArray })
+                });
+                const result = await response.json();
+                if(!result.success) showToast('حدث خطأ أثناء المزامنة السحابية', 'error');
+            } catch(e) { showToast('فشل الاتصال بالخادم، تم الحفظ محلياً فقط', 'error'); }
+        }
+
         // --- 4. Dynamic Categories & Services CRUD ---
-        
         let defaultCategories = [
             { id: 1, title: { ar: 'البرامج التأهيلية', en: 'Rehabilitation Programs', tr: 'Rehabilitasyon Programları' } },
             { id: 2, title: { ar: 'الرعاية الصحية', en: 'Healthcare', tr: 'Sağlık Bakımı' } }
         ];
         let categoriesData = [];
-        try {
-            const savedCats = localStorage.getItem('alrajaa_cats');
-            categoriesData = savedCats ? JSON.parse(savedCats) : [...defaultCategories];
+        try { const savedCats = localStorage.getItem('alrajaa_cats'); categoriesData = savedCats ? JSON.parse(savedCats) : [...defaultCategories];
         } catch(e) { categoriesData = [...defaultCategories]; }
 
-        function saveCategories() { localStorage.setItem('alrajaa_cats', JSON.stringify(categoriesData)); }
+        function saveCategories() { localStorage.setItem('alrajaa_cats', JSON.stringify(categoriesData)); syncDataToCloud('categories', categoriesData); }
 
         let defaultServices = [
             { id: 1, categoryId: 1, icon: 'fa-brain', title: { ar: 'التأهيل الذهني والنفسي', en: 'Mental & Psych Rehab', tr: 'Zihinsel Rehabilitasyon' }, desc: { ar: 'جلسات لتنمية المهارات وتوفير الدعم النفسي المستمر.', en: 'Skill development and psychological support.', tr: 'Beceri geliştirme ve psikolojik destek.' } },
@@ -896,128 +1212,104 @@
             { id: 3, categoryId: 1, icon: 'fa-graduation-cap', title: { ar: 'التعليم الخاص', en: 'Special Education', tr: 'Özel Eğitim' }, desc: { ar: 'فصول مجهزة بالكامل لتناسب مختلف مستويات الإعاقة.', en: 'Classrooms equipped for all levels of disability.', tr: 'Her engel seviyesine uygun tam donanımlı sınıflar.' } }
         ];
         let servicesData = [];
-        try {
-            const savedSrv = localStorage.getItem('alrajaa_services');
-            servicesData = savedSrv ? JSON.parse(savedSrv) : [...defaultServices];
+        try { const savedSrv = localStorage.getItem('alrajaa_services'); servicesData = savedSrv ? JSON.parse(savedSrv) : [...defaultServices];
         } catch(e) { servicesData = [...defaultServices]; }
 
-        function saveServices() { localStorage.setItem('alrajaa_services', JSON.stringify(servicesData)); }
+        function saveServices() { localStorage.setItem('alrajaa_services', JSON.stringify(servicesData)); syncDataToCloud('services', servicesData); }
 
         function renderServices() {
             const container = document.getElementById('servicesContainer');
-            if(!container) return;
-            container.innerHTML = '';
+            if(!container) return; container.innerHTML = '';
             const currentLang = document.documentElement.lang || 'ar';
 
             if(categoriesData.length === 0 || servicesData.length === 0) {
-                container.innerHTML = `<p class="text-brand-muted text-center py-10 font-bold text-lg">لا توجد خدمات متاحة حالياً.</p>`;
-                return;
+                container.innerHTML = `<p class="text-brand-muted text-center py-10 font-bold text-lg">لا توجد خدمات متاحة حالياً.</p>`; return;
             }
 
             categoriesData.forEach(cat => {
-                const catServices = servicesData.filter(s => s.categoryId === cat.id);
+                const catServices = servicesData.filter(s => s.categoryId == cat.id);
                 if(catServices.length === 0) return; 
 
-                const catTitle = getLocalizedString(cat.title, currentLang);
-                
+                const catTitle = sanitizeHTML(getLocalizedString(cat.title, currentLang));
                 container.innerHTML += `
                     <div class="w-full mt-8 mb-4">
                         <h3 class="text-3xl font-black text-brand-text flex items-center gap-3 mb-6">
-                            <span class="w-2 h-8 bg-brand-accent rounded-full shadow-[0_0_15px_rgba(250,204,21,0.6)]"></span>
-                            ${catTitle}
+                            <span class="w-2 h-8 bg-brand-accent rounded-full shadow-[0_0_15px_rgba(255,215,0,0.6)]"></span>${catTitle}
                         </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cat-grid-${cat.id}">
-                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cat-grid-${cat.id}"></div>
                     </div>
                 `;
 
                 const grid = document.getElementById(`cat-grid-${cat.id}`);
                 catServices.forEach(srv => {
+                    const srvTitle = sanitizeHTML(getLocalizedString(srv.title, currentLang));
+                    const srvDesc = sanitizeHTML(getLocalizedString(srv.desc, currentLang));
+                    const iconClass = sanitizeHTML(srv.icon); 
+
                     grid.innerHTML += `
-                        <div class="glass-panel p-8 rounded-[2rem] tilt-card group border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-colors" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="glass-panel p-8 rounded-[2.5rem] tilt-card group border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-colors" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
                             <div class="tilt-card-inner">
-                                <div class="w-16 h-16 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(250,204,21,0.2)] group-hover:shadow-[0_0_20px_rgba(250,204,21,0.4)]"><i class="${srv.icon.includes('fa-') ? srv.icon : 'fa-solid ' + srv.icon}"></i></div>
-                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors">${getLocalizedString(srv.title, currentLang)}</h3>
-                                <p class="text-brand-muted text-base leading-relaxed">${getLocalizedString(srv.desc, currentLang)}</p>
+                                <div class="w-16 h-16 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded-[1.5rem] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,215,0,0.2)] group-hover:shadow-[0_0_25px_rgba(255,215,0,0.4)] animate-float"><i class="${iconClass.includes('fa-') ? iconClass : 'fa-solid ' + iconClass}"></i></div>
+                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors">${srvTitle}</h3>
+                                <p class="text-brand-muted text-base leading-relaxed font-medium">${srvDesc}</p>
                             </div>
                         </div>
                     `;
                 });
             });
-
             if(window.VanillaTilt) { VanillaTilt.init(document.querySelectorAll(".tilt-card")); }
             renderAdminCategories(); 
         }
 
         // --- 5. Data & News Management ---
         let newsData = [];
-        try {
-            const savedNews = localStorage.getItem('alrajaa_news');
-            newsData = savedNews ? JSON.parse(savedNews) : [];
+        try { const savedNews = localStorage.getItem('alrajaa_news'); newsData = savedNews ? JSON.parse(savedNews) : [];
         } catch(e) { newsData = []; }
 
-        function saveNewsToLocal() { localStorage.setItem('alrajaa_news', JSON.stringify(newsData)); }
+        function saveNewsToLocal() { localStorage.setItem('alrajaa_news', JSON.stringify(newsData)); syncDataToCloud('news', newsData); }
 
         function toggleLike(btn) {
-            const icon = btn.querySelector('i');
-            const lang = document.documentElement.lang;
+            const icon = btn.querySelector('i'); const lang = document.documentElement.lang;
             if(icon.classList.contains('fa-regular')) {
-                icon.classList.remove('fa-regular');
-                icon.classList.add('fa-solid', 'text-red-500', 'animate-bounce');
-                setTimeout(()=> icon.classList.remove('animate-bounce'), 1000);
-                showToast(lang === 'ar' ? 'تم الإعجاب بالخبر' : lang === 'en' ? 'Liked the post' : 'Gönderi beğenildi', 'success');
-            } else {
-                icon.classList.add('fa-regular');
-                icon.classList.remove('fa-solid', 'text-red-500');
-            }
+                icon.classList.remove('fa-regular'); icon.classList.add('fa-solid', 'text-red-500', 'animate-bounce');
+                setTimeout(()=> icon.classList.remove('animate-bounce'), 1000); showToast(lang === 'ar' ? 'تم الإعجاب' : 'Liked', 'success');
+            } else { icon.classList.add('fa-regular'); icon.classList.remove('fa-solid', 'text-red-500'); }
         }
         function shareNews(id) {
-            const url = window.location.href.split('#')[0] + '#news'; 
-            const lang = document.documentElement.lang;
-            const textArea = document.createElement("textarea");
-            textArea.value = url;
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                showToast(lang === 'ar' ? 'تم نسخ رابط الخبر للمشاركة' : lang === 'en' ? 'Link copied successfully' : 'Bağlantı kopyalandı', 'success');
-            } catch (err) {
-                showToast('عذراً، لم يتم النسخ', 'error');
-            }
+            const url = window.location.href.split('#')[0] + '#news'; const lang = document.documentElement.lang;
+            const textArea = document.createElement("textarea"); textArea.value = url; document.body.appendChild(textArea); textArea.select();
+            try { document.execCommand('copy'); showToast(lang === 'ar' ? 'تم النسخ' : 'Copied', 'success'); } 
+            catch (err) { showToast('عذراً، لم يتم النسخ', 'error'); }
             document.body.removeChild(textArea);
         }
 
         function renderNews() {
             const container = document.getElementById('newsContainer');
-            if(!container) return;
-            container.innerHTML = '';
+            if(!container) return; container.innerHTML = '';
             const currentLang = document.documentElement.lang || 'ar';
 
             if(newsData.length === 0) {
                 container.innerHTML = `<p class="text-brand-muted text-center py-10 font-bold text-lg">${translations[currentLang].nw_empty}</p>`;
             } else {
                 newsData.sort((a,b) => new Date(b.date) - new Date(a.date)).forEach(news => {
-                    const displayTitle = getLocalizedString(news.title, currentLang);
-                    const displayContent = getLocalizedString(news.content, currentLang);
+                    const displayTitle = sanitizeHTML(getLocalizedString(news.title, currentLang));
+                    const displayContent = sanitizeHTML(getLocalizedString(news.content, currentLang));
+                    const safeDate = sanitizeHTML(news.date);
                     const autoImgSrc = `${news.id}.jpg`;
-                    const fallbackImg = `https://placehold.co/800x400/020617/facc15?text=${encodeURIComponent(displayTitle.substring(0,10))}`;
-                    const imgSrc = news.image && news.image.trim() !== '' ? news.image : autoImgSrc;
+                    const fallbackImg = `https://placehold.co/800x400/01010a/ffd700?text=${encodeURIComponent(displayTitle.substring(0,10))}`;
+                    const imgSrc = news.image && news.image.trim() !== '' ? encodeURI(news.image) : autoImgSrc;
                     
                     container.innerHTML += `
-                        <div class="glass-panel bg-white/60 dark:bg-[#020617]/80 rounded-[2rem] overflow-hidden shadow-2xl border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-all duration-500">
+                        <div class="glass-panel bg-white/60 dark:bg-[#01010a]/80 rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-all duration-500">
                             <div class="p-6 flex items-center gap-5 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-black/30">
-                                <div class="w-14 h-14 rounded-2xl bg-brand-accent flex items-center justify-center text-[#020617] shadow-[0_0_15px_rgba(250,204,21,0.4)]">
-                                    <i class="fa-solid fa-hands-holding-child text-2xl"></i>
-                                </div>
+                                <div class="w-16 h-16 rounded-[1.5rem] bg-brand-accent flex items-center justify-center text-[#000] shadow-[0_0_20px_rgba(255,215,0,0.4)]"><i class="fa-solid fa-hands-holding-child text-2xl"></i></div>
                                 <div>
-                                    <h3 class="font-black text-xl text-brand-text leading-tight">${displayTitle}</h3>
-                                    <span class="text-sm text-brand-accent/80 font-bold tracking-wider">${news.date}</span>
+                                    <h3 class="font-black text-2xl text-brand-text leading-tight">${displayTitle}</h3>
+                                    <span class="text-sm text-brand-accent/90 font-bold tracking-wider">${safeDate}</span>
                                 </div>
                             </div>
-                            <div class="p-8 text-brand-text leading-relaxed whitespace-pre-wrap text-base font-medium">${displayContent}</div>
-                            <div class="w-full bg-gray-100 dark:bg-[#010308] overflow-hidden">
-                                <img src="${imgSrc}" alt="${displayTitle}" class="w-full max-h-[500px] object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='${fallbackImg}'">
-                            </div>
+                            <div class="p-8 text-brand-text leading-relaxed whitespace-pre-wrap text-lg font-medium">${displayContent}</div>
+                            <div class="w-full bg-gray-100 dark:bg-[#000000] overflow-hidden"><img src="${imgSrc}" alt="${displayTitle}" class="w-full max-h-[500px] object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='${fallbackImg}'"></div>
                             <div class="p-5 border-t border-gray-100 dark:border-white/5 flex gap-8 text-brand-muted text-sm px-8 bg-gray-50/50 dark:bg-black/30">
                                 <button onclick="toggleLike(this)" class="hover:text-red-500 transition-all hover:scale-110 flex items-center gap-2 font-bold"><i class="fa-regular fa-heart text-xl"></i> <span data-i18n="btn_like">${translations[currentLang].btn_like}</span></button>
                                 <button onclick="shareNews(${news.id})" class="hover:text-blue-500 transition-all hover:scale-110 flex items-center gap-2 font-bold"><i class="fa-solid fa-share-nodes text-xl"></i> <span data-i18n="btn_share">${translations[currentLang].btn_share}</span></button>
@@ -1031,19 +1323,23 @@
             if(tBody) {
                 tBody.innerHTML = '';
                 newsData.sort((a,b) => new Date(b.date) - new Date(a.date)).forEach(n => {
+                    const safeTitle = sanitizeHTML(getLocalizedString(n.title, 'ar'));
+                    const safeDate = sanitizeHTML(n.date);
+                    const imgSrc = n.image ? encodeURI(n.image) : n.id+'.jpg';
+
                     tBody.innerHTML += `
                         <tr class="border-b dark:border-white/5 hover:bg-black/20 transition-colors">
-                            <td class="px-5 py-3">
+                            <td class="px-5 py-4">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-lg bg-black overflow-hidden border border-white/10"><img src="${n.image || n.id+'.jpg'}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/020617/facc15?text=${n.id}'"></div>
-                                    <span class="font-black text-brand-muted text-lg bg-brand-accent/10 px-2 py-1 rounded">#${n.id}</span>
+                                    <div class="w-12 h-12 rounded-xl bg-black overflow-hidden border border-white/10"><img src="${imgSrc}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/01010a/ffd700?text=${n.id}'"></div>
+                                    <span class="font-black text-brand-muted text-lg bg-brand-accent/10 px-3 py-1 rounded-lg">#${n.id}</span>
                                 </div>
                             </td>
-                            <td class="px-5 py-3 text-brand-accent font-bold">${n.date}</td>
-                            <td class="px-5 py-3 text-brand-text font-bold text-base">${getLocalizedString(n.title, 'ar')}</td>
-                            <td class="px-5 py-3 text-center">
-                                <button onclick="editNews(${n.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button onclick="deleteNews(${n.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2 rounded-lg"><i class="fa-solid fa-trash-can"></i></button>
+                            <td class="px-5 py-4 text-brand-accent font-bold">${safeDate}</td>
+                            <td class="px-5 py-4 text-brand-text font-bold text-base">${safeTitle}</td>
+                            <td class="px-5 py-4 text-center">
+                                <button onclick="editNews(${n.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="deleteNews(${n.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>
                     `;
@@ -1057,36 +1353,34 @@
             if(!ticker) return;
             const currentLang = document.documentElement.lang || 'ar';
             if(newsData.length > 0) {
-                const latest = newsData.map(n => getLocalizedString(n.title, currentLang)).join('  &nbsp;&nbsp;&bull;&nbsp;&nbsp;  ');
+                const latest = newsData.map(n => sanitizeHTML(getLocalizedString(n.title, currentLang))).join('  &nbsp;&nbsp;&bull;&nbsp;&nbsp;  ');
                 ticker.innerHTML = latest + '  &nbsp;&nbsp;&bull;&nbsp;&nbsp;  ' + latest;
             } else { ticker.innerText = '...'; }
         }
 
         // --- 6. Admin Panel Logic (Tabs & Auth) ---
         function switchAdminTab(tabName) {
-            document.getElementById('tab-news').className = `admin-tab px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='news' ? 'active' : 'inactive'}`;
-            document.getElementById('tab-categories').className = `admin-tab px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='categories' ? 'active' : 'inactive'}`;
-            document.getElementById('tab-services').className = `admin-tab px-5 md:px-6 py-3 rounded-xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='services' ? 'active' : 'inactive'}`;
+            document.getElementById('tab-news').className = `admin-tab px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='news' ? 'active' : 'inactive'}`;
+            document.getElementById('tab-categories').className = `admin-tab px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='categories' ? 'active' : 'inactive'}`;
+            document.getElementById('tab-services').className = `admin-tab px-5 md:px-6 py-3 rounded-2xl font-bold text-sm md:text-base flex items-center gap-2 ${tabName==='services' ? 'active' : 'inactive'}`;
             
             document.getElementById('adminNewsSection').classList.toggle('hidden', tabName !== 'news');
             document.getElementById('adminCategoriesSection').classList.toggle('hidden', tabName !== 'categories');
             document.getElementById('adminServicesSection').classList.toggle('hidden', tabName !== 'services');
             
-            if(tabName === 'news') renderNews();
-            if(tabName === 'categories') renderAdminCategories();
-            if(tabName === 'services') renderAdminCategories(); 
+            if(tabName === 'news') renderNews(); if(tabName === 'categories') renderAdminCategories(); if(tabName === 'services') renderAdminCategories(); 
         }
 
         async function handleLogin(e) {
-            e.preventDefault();
-            const user = document.getElementById('adminUser').value.trim();
-            const pass = document.getElementById('adminPass').value.trim();
-            if(user === 'admin' && pass === '123456') {
-                showLoading();
-                setTimeout(() => { hideLoading(); setAuthSession(true); navigateTo('view-admin'); showToast('تم تسجيل الدخول', 'success'); }, 600); 
-                return;
-            }
-            showToast('بيانات الدخول غير صحيحة', 'error');
+            e.preventDefault(); const user = document.getElementById('adminUser').value.trim(); const pass = document.getElementById('adminPass').value.trim();
+            showLoading(true);
+            try {
+                const response = await fetch(GAS_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, redirect: 'follow', body: JSON.stringify({ action: 'login', username: user, password: pass }) });
+                const result = await response.json();
+                if(result.success) {
+                    setTimeout(() => { hideLoading(); setAuthSession(true); navigateTo('view-admin'); showToast(result.message || 'تم تسجيل الدخول بنجاح', 'success'); }, 600); 
+                } else { hideLoading(); showToast(result.message || 'بيانات الدخول غير صحيحة', 'error'); }
+            } catch(error) { hideLoading(); showToast('تعذر الاتصال بالخادم، حاول مجدداً', 'error'); }
         }
 
         function adminLogout() { setAuthSession(false); navigateTo('view-home'); showToast('تم تسجيل الخروج', 'success'); }
@@ -1094,7 +1388,7 @@
         function handleAdminSubmit(e) {
             e.preventDefault();
             const id = document.getElementById('editNewsId').value;
-            const nextId = newsData.length > 0 ? Math.max(...newsData.map(n => n.id)) + 1 : 1;
+            const nextId = newsData.length > 0 ? Math.max(...newsData.map(n => Number(n.id) || 0)) + 1 : 1;
             const post = {
                 id: id ? parseInt(id) : nextId, date: document.getElementById('newsDate').value, image: document.getElementById('newsImage').value,
                 title: { ar: document.getElementById('newsTitleAr').value, en: document.getElementById('newsTitleEn').value, tr: document.getElementById('newsTitleTr').value },
@@ -1108,7 +1402,7 @@
         }
 
         function editNews(id) {
-            const n = newsData.find(x => x.id === id);
+            const n = newsData.find(x => x.id == id);
             if(n) {
                 document.getElementById('editNewsId').value = n.id; document.getElementById('newsDate').value = n.date; document.getElementById('newsImage').value = n.image || '';
                 document.getElementById('newsTitleAr').value = n.title.ar || ''; document.getElementById('newsTitleEn').value = n.title.en || ''; document.getElementById('newsTitleTr').value = n.title.tr || '';
@@ -1117,7 +1411,8 @@
                 document.getElementById('adminCancelBtn').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
-        function deleteNews(id) { if(confirm('متأكد من الحذف؟')) { newsData = newsData.filter(n => n.id !== id); saveNewsToLocal(); renderNews(); showToast('تم الحذف', 'success'); } }
+        function deleteNews(id) { if(confirm('متأكد من الحذف؟')) { newsData = newsData.filter(n => n.id != id); saveNewsToLocal(); renderNews(); showToast('تم الحذف', 'success'); } }
+        
         function resetAdminForm() {
             document.getElementById('editNewsId').value = ''; document.getElementById('newsDate').value = ''; document.getElementById('newsImage').value = '';
             document.getElementById('newsTitleAr').value = ''; document.getElementById('newsTitleEn').value = ''; document.getElementById('newsTitleTr').value = '';
@@ -1132,7 +1427,8 @@
             if(dropdown) {
                 dropdown.innerHTML = '<option value="" disabled selected>-- اختر القسم --</option>';
                 categoriesData.forEach(cat => {
-                    dropdown.innerHTML += `<option value="${cat.id}">${getLocalizedString(cat.title, currentLang)}</option>`;
+                    const safeTitle = sanitizeHTML(getLocalizedString(cat.title, currentLang));
+                    dropdown.innerHTML += `<option value="${cat.id}">${safeTitle}</option>`;
                 });
             }
 
@@ -1140,13 +1436,14 @@
             if(tBody) {
                 tBody.innerHTML = '';
                 categoriesData.forEach(c => {
+                    const safeTitle = sanitizeHTML(getLocalizedString(c.title, 'ar'));
                     tBody.innerHTML += `
                         <tr class="border-b dark:border-white/5 hover:bg-black/20 transition-colors">
-                            <td class="px-5 py-3 font-bold text-brand-muted">#${c.id}</td>
-                            <td class="px-5 py-3 text-brand-text font-bold">${getLocalizedString(c.title, 'ar')}</td>
-                            <td class="px-5 py-3 text-center">
-                                <button onclick="editCategory(${c.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button onclick="deleteCategory(${c.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2 rounded-lg"><i class="fa-solid fa-trash-can"></i></button>
+                            <td class="px-5 py-4 font-black text-brand-muted text-lg">#${c.id}</td>
+                            <td class="px-5 py-4 text-brand-text font-bold text-base">${safeTitle}</td>
+                            <td class="px-5 py-4 text-center">
+                                <button onclick="editCategory(${c.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="deleteCategory(${c.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>
                     `;
@@ -1157,15 +1454,19 @@
             if(sBody) {
                 sBody.innerHTML = '';
                 servicesData.forEach(s => {
-                    const catName = categoriesData.find(c => c.id == s.categoryId) ? getLocalizedString(categoriesData.find(c => c.id == s.categoryId).title, 'ar') : 'غير محدد';
+                    const matchedCat = categoriesData.find(c => c.id == s.categoryId);
+                    const catName = matchedCat ? sanitizeHTML(getLocalizedString(matchedCat.title, 'ar')) : 'غير محدد';
+                    const safeTitle = sanitizeHTML(getLocalizedString(s.title, 'ar'));
+                    const safeIcon = sanitizeHTML(s.icon);
+
                     sBody.innerHTML += `
                         <tr class="border-b dark:border-white/5 hover:bg-black/20 transition-colors">
-                            <td class="px-5 py-3"><div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent text-xl"><i class="${s.icon.includes('fa-') ? s.icon : 'fa-solid ' + s.icon}"></i></div></td>
-                            <td class="px-5 py-3 text-brand-muted text-sm"><span class="bg-white/5 px-2 py-1 rounded">${catName}</span></td>
-                            <td class="px-5 py-3 text-brand-text font-bold text-base">${getLocalizedString(s.title, 'ar')}</td>
-                            <td class="px-5 py-3 text-center">
-                                <button onclick="editService(${s.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2 rounded-lg"><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button onclick="deleteService(${s.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2 rounded-lg"><i class="fa-solid fa-trash-can"></i></button>
+                            <td class="px-5 py-4"><div class="w-12 h-12 rounded-[1rem] bg-brand-accent/10 flex items-center justify-center text-brand-accent text-xl border border-brand-accent/20"><i class="${safeIcon.includes('fa-') ? safeIcon : 'fa-solid ' + safeIcon}"></i></div></td>
+                            <td class="px-5 py-4 text-brand-muted text-sm font-bold"><span class="bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">${catName}</span></td>
+                            <td class="px-5 py-4 text-brand-text font-bold text-base">${safeTitle}</td>
+                            <td class="px-5 py-4 text-center">
+                                <button onclick="editService(${s.id})" class="text-blue-400 hover:text-blue-300 mx-2 transition-transform hover:scale-125 bg-blue-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="deleteService(${s.id})" class="text-red-500 hover:text-red-400 mx-2 transition-transform hover:scale-125 bg-red-500/10 p-2.5 rounded-xl"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>
                     `;
@@ -1176,7 +1477,7 @@
         function handleCategorySubmit(e) {
             e.preventDefault();
             const id = document.getElementById('editCatId').value;
-            const nextId = categoriesData.length > 0 ? Math.max(...categoriesData.map(c => c.id)) + 1 : 1;
+            const nextId = categoriesData.length > 0 ? Math.max(...categoriesData.map(c => Number(c.id) || 0)) + 1 : 1;
             const cat = {
                 id: id ? parseInt(id) : nextId,
                 title: { ar: document.getElementById('catTitleAr').value, en: document.getElementById('catTitleEn').value, tr: document.getElementById('catTitleTr').value }
@@ -1189,7 +1490,7 @@
         }
 
         function editCategory(id) {
-            const c = categoriesData.find(x => x.id === id);
+            const c = categoriesData.find(x => x.id == id);
             if(c) {
                 document.getElementById('editCatId').value = c.id;
                 document.getElementById('catTitleAr').value = c.title.ar || ''; document.getElementById('catTitleEn').value = c.title.en || ''; document.getElementById('catTitleTr').value = c.title.tr || '';
@@ -1200,23 +1501,20 @@
 
         function deleteCategory(id) {
             if(confirm('تنبيه: حذف القسم سيؤدي إلى حذف كافة الخدمات التابعة له! هل أنت متأكد؟')) { 
-                categoriesData = categoriesData.filter(c => c.id !== id); 
-                servicesData = servicesData.filter(s => s.categoryId !== id); 
+                categoriesData = categoriesData.filter(c => c.id != id); servicesData = servicesData.filter(s => s.categoryId != id); 
                 saveCategories(); saveServices(); renderAdminCategories(); renderServices(); showToast('تم حذف القسم بنجاح', 'success'); 
             } 
         }
 
         function resetCatForm() {
-            document.getElementById('editCatId').value = '';
-            document.getElementById('catTitleAr').value = ''; document.getElementById('catTitleEn').value = ''; document.getElementById('catTitleTr').value = '';
-            document.getElementById('adminCatFormTitle').innerHTML = 'إضافة قسم جديد';
-            document.getElementById('adminCatCancelBtn').classList.add('hidden');
+            document.getElementById('editCatId').value = ''; document.getElementById('catTitleAr').value = ''; document.getElementById('catTitleEn').value = ''; document.getElementById('catTitleTr').value = '';
+            document.getElementById('adminCatFormTitle').innerHTML = 'إضافة قسم جديد'; document.getElementById('adminCatCancelBtn').classList.add('hidden');
         }
 
         function handleServiceSubmit(e) {
             e.preventDefault();
             const id = document.getElementById('editSrvId').value;
-            const nextId = servicesData.length > 0 ? Math.max(...servicesData.map(s => s.id)) + 1 : 1;
+            const nextId = servicesData.length > 0 ? Math.max(...servicesData.map(s => Number(s.id) || 0)) + 1 : 1;
             const categoryId = parseInt(document.getElementById('srvCategoryId').value);
             
             if(!categoryId) { showToast('يرجى اختيار القسم التابع له أولاً!', 'error'); return; }
@@ -1237,7 +1535,7 @@
         }
 
         function editService(id) {
-            const s = servicesData.find(x => x.id === id);
+            const s = servicesData.find(x => x.id == id);
             if(s) {
                 document.getElementById('editSrvId').value = s.id; document.getElementById('srvCategoryId').value = s.categoryId; document.getElementById('srvIcon').value = s.icon;
                 document.getElementById('srvTitleAr').value = s.title.ar || ''; document.getElementById('srvTitleEn').value = s.title.en || ''; document.getElementById('srvTitleTr').value = s.title.tr || '';
@@ -1246,23 +1544,41 @@
                 document.getElementById('adminSrvCancelBtn').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
-        function deleteService(id) { if(confirm('متأكد من حذف الخدمة؟')) { servicesData = servicesData.filter(s => s.id !== id); saveServices(); renderAdminCategories(); renderServices(); showToast('تم الحذف', 'success'); } }
+        
+        function deleteService(id) { if(confirm('متأكد من حذف الخدمة؟')) { servicesData = servicesData.filter(s => s.id != id); saveServices(); renderAdminCategories(); renderServices(); showToast('تم الحذف', 'success'); } }
         
         function resetSrvForm() {
             document.getElementById('editSrvId').value = ''; document.getElementById('srvCategoryId').value = ''; document.getElementById('srvIcon').value = '';
             document.getElementById('srvTitleAr').value = ''; document.getElementById('srvTitleEn').value = ''; document.getElementById('srvTitleTr').value = '';
             document.getElementById('srvDescAr').value = ''; document.getElementById('srvDescEn').value = ''; document.getElementById('srvDescTr').value = '';
-            document.getElementById('adminSrvFormTitle').innerHTML = 'إضافة خدمة جديدة';
-            document.getElementById('adminSrvCancelBtn').classList.add('hidden');
+            document.getElementById('adminSrvFormTitle').innerHTML = 'إضافة خدمة جديدة'; document.getElementById('adminSrvCancelBtn').classList.add('hidden');
         }
 
-        // --- Init ---
-        window.addEventListener('DOMContentLoaded', () => {
+        // --- Init with Animated Startup ---
+        window.addEventListener('DOMContentLoaded', async () => {
             if(localStorage.getItem('theme') === 'light') toggleTheme();
             const lang = localStorage.getItem('siteLang') || 'ar';
             document.getElementById('langSwitcher').value = lang;
             changeLanguage(lang);
             handleRouteChange();
+
+            initSplashStars();
+
+            const minimumSplashTime = new Promise(resolve => setTimeout(resolve, 3500));
+            const dataFetchProcess = fetchInitialData(); 
+            
+            await Promise.all([minimumSplashTime, dataFetchProcess]);
+
+            const splash = document.getElementById('splash-screen');
+            if(splash) {
+                splash.style.opacity = '0';
+                splash.style.visibility = 'hidden';
+                setTimeout(() => {
+                    splash.remove();
+                    triggerFadeUp();
+                    startCounters(); 
+                }, 1000);
+            }
         });
     </script>
 </body>
