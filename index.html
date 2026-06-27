@@ -1172,10 +1172,13 @@
                     body: JSON.stringify({ action: 'getAllData' })
                 });
                 const result = await response.json();
+                
                 if(result.success && result.data) {
-                    newsData = result.data.news || []; categoriesData = result.data.categories || []; servicesData = result.data.services || [];
-                    if(categoriesData.length === 0) categoriesData = [...defaultCategories];
-                    if(servicesData.length === 0) servicesData = [...defaultServices];
+                    // التعديل: الاعتماد على السيرفر تماماً، لا نستخدم الافتراضيات إلا في حال فشل الجلب (null)
+                    newsData = result.data.news !== null ? result.data.news : [];
+                    categoriesData = result.data.categories !== null ? result.data.categories : [...defaultCategories];
+                    servicesData = result.data.services !== null ? result.data.services : [...defaultServices];
+                    
                     localStorage.setItem('alrajaa_news', JSON.stringify(newsData));
                     localStorage.setItem('alrajaa_cats', JSON.stringify(categoriesData));
                     localStorage.setItem('alrajaa_services', JSON.stringify(servicesData));
@@ -1222,13 +1225,12 @@
             if(!container) return; container.innerHTML = '';
             const currentLang = document.documentElement.lang || 'ar';
 
-            if(categoriesData.length === 0 || servicesData.length === 0) {
-                container.innerHTML = `<p class="text-brand-muted text-center py-10 font-bold text-lg">لا توجد خدمات متاحة حالياً.</p>`; return;
+            if(categoriesData.length === 0) {
+                container.innerHTML = `<p class="text-brand-muted text-center py-10 font-bold text-lg">لا توجد أقسام متاحة حالياً.</p>`; return;
             }
 
             categoriesData.forEach(cat => {
                 const catServices = servicesData.filter(s => s.categoryId == cat.id);
-                if(catServices.length === 0) return; 
 
                 const catTitle = sanitizeHTML(getLocalizedString(cat.title, currentLang));
                 container.innerHTML += `
@@ -1241,6 +1243,17 @@
                 `;
 
                 const grid = document.getElementById(`cat-grid-${cat.id}`);
+                
+                if(catServices.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full glass-panel p-8 rounded-[2.5rem] text-center border-2 border-dashed border-gray-300 dark:border-white/10 opacity-70">
+                            <i class="fa-solid fa-folder-open text-4xl text-brand-muted mb-3 opacity-50"></i>
+                            <p class="text-brand-muted font-bold text-lg">سيتم إضافة خدمات لهذا القسم قريباً...</p>
+                        </div>
+                    `;
+                    return; 
+                }
+
                 catServices.forEach(srv => {
                     const srvTitle = sanitizeHTML(getLocalizedString(srv.title, currentLang));
                     const srvDesc = sanitizeHTML(getLocalizedString(srv.desc, currentLang));
