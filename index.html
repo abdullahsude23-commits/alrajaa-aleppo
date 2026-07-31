@@ -877,6 +877,20 @@
         </div>
     </footer>
 
+    <!-- Service Details Modal (النافذة المنبثقة) - عرضي أفقي دائم -->
+    <div id="serviceModal" class="fixed inset-0 z-[130] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-3 md:p-4 bg-black/60 backdrop-blur-sm" onclick="closeServiceModal(event)">
+        <div class="glass-panel p-6 md:p-10 rounded-[2.5rem] md:rounded-[3rem] w-full max-w-3xl shadow-[0_0_40px_rgba(255,215,0,0.2)] border border-brand-accent/30 transform scale-95 transition-transform duration-300 relative flex flex-row gap-4 md:gap-8 items-start text-start cursor-default overflow-y-auto max-h-[90vh]" onclick="event.stopPropagation()">
+            <button onclick="closeServiceModal()" class="absolute top-5 rtl:left-5 ltr:right-5 md:top-6 md:rtl:left-6 md:ltr:right-6 w-9 h-9 md:w-10 md:h-10 rounded-full bg-black/10 dark:bg-white/10 hover:bg-red-500/80 hover:text-white flex items-center justify-center transition-colors border border-gray-300 dark:border-white/10 text-brand-text z-10 outline-none">
+                <i class="fa-solid fa-xmark text-lg md:text-xl"></i>
+            </button>
+            <div id="serviceModalIcon" class="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-tr from-[#d4af37]/20 to-[#ffb300]/20 dark:bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded-2xl md:rounded-[2rem] flex items-center justify-center text-3xl md:text-5xl shrink-0 shadow-[0_0_20px_rgba(255,215,0,0.2)] animate-float"></div>
+            <div class="flex-1 pt-1 rtl:pl-10 ltr:pr-10 md:rtl:pl-0 md:ltr:pr-0">
+                <h3 id="serviceModalTitle" class="text-xl md:text-3xl font-black mb-2 md:mb-4 text-brand-text"></h3>
+                <p id="serviceModalDesc" class="text-brand-muted text-sm md:text-lg leading-relaxed font-medium whitespace-pre-wrap"></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Loading Modal -->
     <div id="loadingModal" class="fixed inset-0 z-[120] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
         <div class="glass-panel p-8 rounded-3xl flex flex-col items-center shadow-[0_0_40px_rgba(255,215,0,0.4)] border border-brand-accent/50">
@@ -1174,7 +1188,6 @@
                 const result = await response.json();
                 
                 if(result.success && result.data) {
-                    // التعديل: الاعتماد على السيرفر تماماً، لا نستخدم الافتراضيات إلا في حال فشل الجلب (null)
                     newsData = result.data.news !== null ? result.data.news : [];
                     categoriesData = result.data.categories !== null ? result.data.categories : [...defaultCategories];
                     servicesData = result.data.services !== null ? result.data.services : [...defaultServices];
@@ -1238,7 +1251,7 @@
                         <h3 class="text-3xl font-black text-brand-text flex items-center gap-3 mb-6">
                             <span class="w-2 h-8 bg-brand-accent rounded-full shadow-[0_0_15px_rgba(255,215,0,0.6)]"></span>${catTitle}
                         </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cat-grid-${cat.id}"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start" id="cat-grid-${cat.id}"></div>
                     </div>
                 `;
 
@@ -1256,15 +1269,21 @@
 
                 catServices.forEach(srv => {
                     const srvTitle = sanitizeHTML(getLocalizedString(srv.title, currentLang));
-                    const srvDesc = sanitizeHTML(getLocalizedString(srv.desc, currentLang));
                     const iconClass = sanitizeHTML(srv.icon); 
+                    const btnText = currentLang === 'ar' ? 'عرض التفاصيل' : (currentLang === 'tr' ? 'Detayları Gör' : 'View Details');
 
                     grid.innerHTML += `
-                        <div class="glass-panel p-8 rounded-[2.5rem] tilt-card group border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-colors" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
-                            <div class="tilt-card-inner">
-                                <div class="w-16 h-16 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded-[1.5rem] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,215,0,0.2)] group-hover:shadow-[0_0_25px_rgba(255,215,0,0.4)] animate-float"><i class="${iconClass.includes('fa-') ? iconClass : 'fa-solid ' + iconClass}"></i></div>
-                                <h3 class="text-2xl font-bold mb-3 text-brand-text group-hover:text-brand-accent transition-colors">${srvTitle}</h3>
-                                <p class="text-brand-muted text-base leading-relaxed font-medium">${srvDesc}</p>
+                        <div class="glass-panel p-8 rounded-[2.5rem] tilt-card group border border-gray-200 dark:border-white/5 hover:border-brand-accent/50 transition-colors flex flex-col h-full" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
+                            <div class="tilt-card-inner flex flex-col h-full">
+                                <div class="w-16 h-16 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded-[1.5rem] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,215,0,0.2)] group-hover:shadow-[0_0_25px_rgba(255,215,0,0.4)] animate-float shrink-0"><i class="${iconClass.includes('fa-') ? iconClass : 'fa-solid ' + iconClass}"></i></div>
+                                <h3 class="text-2xl font-bold mb-4 text-brand-text group-hover:text-brand-accent transition-colors">${srvTitle}</h3>
+                                
+                                <div class="mt-auto pt-4 w-full">
+                                    <button onclick="openServiceModal(${srv.id}, '${currentLang}')" class="flex items-center justify-center gap-3 bg-brand-accent/10 text-brand-accent font-bold hover:bg-brand-accent hover:text-[#000] transition-all duration-300 w-full rounded-2xl py-3 border border-brand-accent/20 outline-none group/btn shadow-[0_4px_15px_rgba(255,215,0,0.1)] hover:shadow-[0_4px_20px_rgba(255,215,0,0.3)]">
+                                        <span class="text-sm tracking-wide">${btnText}</span>
+                                        <i class="fa-solid fa-arrow-up-right-from-square transition-transform group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -1272,6 +1291,45 @@
             });
             if(window.VanillaTilt) { VanillaTilt.init(document.querySelectorAll(".tilt-card")); }
             renderAdminCategories(); 
+        }
+
+        // --- Service Modal Functions ---
+        function openServiceModal(id, lang) {
+            const srv = servicesData.find(s => s.id === id);
+            if (!srv) return;
+            
+            const title = sanitizeHTML(getLocalizedString(srv.title, lang));
+            const desc = sanitizeHTML(getLocalizedString(srv.desc, lang));
+            const iconClass = sanitizeHTML(srv.icon);
+            
+            document.getElementById('serviceModalIcon').innerHTML = `<i class="${iconClass.includes('fa-') ? iconClass : 'fa-solid ' + iconClass}"></i>`;
+            document.getElementById('serviceModalTitle').innerText = title;
+            document.getElementById('serviceModalDesc').innerText = desc;
+            
+            const modal = document.getElementById('serviceModal');
+            const modalBox = modal.querySelector('.glass-panel');
+            
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // Force Reflow للانتقال السلس
+            modal.classList.remove('opacity-0');
+            modalBox.classList.remove('scale-95');
+            modalBox.classList.add('scale-100');
+        }
+
+        function closeServiceModal(e) {
+            // منع الإغلاق إذا تم الضغط داخل النافذة نفسها (السماح فقط بالضغط على الخلفية أو الزر)
+            if (e && e.target !== e.currentTarget) return;
+            
+            const modal = document.getElementById('serviceModal');
+            const modalBox = modal.querySelector('.glass-panel');
+            
+            modal.classList.add('opacity-0');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
         }
 
         // --- 5. Data & News Management ---
